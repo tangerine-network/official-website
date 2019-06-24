@@ -1,45 +1,34 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from "gatsby";
+import React from "react";
 import { FormattedMessage } from 'react-intl';
+import styled from 'styled-components';
+
+const Wrapper = styled.header`
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
+  padding: 20px;
+`;
+
 const Header = ({ title }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
+  <Wrapper>
+    <Link
+      to="/"
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        color: `white`,
+        textDecoration: `none`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          <FormattedMessage
-            id="Tangerine Network"
-            defaultMessage="Tangerine Network"
-          />
-        </Link>
-      </h1>
-    </div>
-  </header>
+      <FormattedMessage
+        id="Tangerine Network"
+        defaultMessage="Tangerine Network"
+      />
+    </Link>
+  </Wrapper>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
