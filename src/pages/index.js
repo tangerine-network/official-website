@@ -14,7 +14,7 @@ const Test = styled.div`
 const IndexPage = ({ pathContext: { locale } }) => {
   // console.log('locale', locale);
   return (
-    <Layout>
+    <Layout locale={locale}>
       <SEO title="Home" />
       <Test />
       <h1>Hi people testest 2222</h1>

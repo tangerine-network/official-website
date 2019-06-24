@@ -1,8 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-
-const Header = ({ siteTitle }) => (
+import { FormattedMessage } from 'react-intl';
+const Header = ({ title }) => (
   <header
     style={{
       background: `rebeccapurple`,
@@ -24,7 +24,10 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <FormattedMessage
+            id="Tangerine Network"
+            defaultMessage="Tangerine Network"
+          />
         </Link>
       </h1>
     </div>
