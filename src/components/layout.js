@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react";
+import React, { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
 import { addLocaleData } from "react-intl";
 import PropTypes from "prop-types";
@@ -38,16 +38,53 @@ const Main = styled.main`
   flex: 1;
 `;
 
+const HEADER_HEIGHT = 90;
+let previousScrollPosition = 0;
+
 const Layout = ({ children, locale }) => {
+
+  const [headerState, setHeaderState] = useState(true);
+  const wrapperRef = useRef(null);
+
+  const scrollHandler = useCallback(() => {
+    // console.log(wrapperRef.current.scrollTop);
+    const scrollTop = wrapperRef.current.scrollTop;
+    if ((scrollTop <= HEADER_HEIGHT) && !headerState) {
+      // console.log('on');
+      setHeaderState(true);
+    } else if (headerState &&
+      scrollTop > HEADER_HEIGHT &&
+      previousScrollPosition < scrollTop
+      ) {
+        setHeaderState(false);
+        // console.log('off');
+    } else if (!headerState &&
+      scrollTop < previousScrollPosition
+      ) {
+        setHeaderState(true);
+        // console.log('on');
+    }
+    previousScrollPosition = scrollTop;
+  }, [headerState]);
 
   return (
     <IntlProvider
       locale={locale}
       messages={messages[locale] || messages['en']}
     >
-      <Wrapper>
-        <Header />
-        <Main>{children}</Main>
+      <Wrapper
+        onScroll={scrollHandler}
+        ref={wrapperRef}
+      >
+        <Header height={HEADER_HEIGHT} />
+        <Main>
+          {children}
+          {children}
+          {children}
+          {children}
+          {children}
+          {children}
+        </Main>
         <Footer />
       </Wrapper>
     </IntlProvider>
