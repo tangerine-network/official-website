@@ -6,7 +6,11 @@ import { FormattedMessage } from 'react-intl';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import BackgroundImage from 'gatsby-background-image';
-import { MAIN_AREA_DESKTOP_HEIGHT, MAIN_AREA_MOBILE_HEIGHT } from 'src/constants/app';
+import {
+  MAIN_AREA_DESKTOP_HEIGHT,
+  MAIN_AREA_MOBILE_HEIGHT,
+  MOBILE_WIDTH,
+} from 'src/constants/app';
 
 
 
@@ -34,18 +38,122 @@ const StyledMainBg = styled(MainBgImg)`
   width: 100%;
   height: ${MAIN_AREA_DESKTOP_HEIGHT}px;
   overflow: hidden;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
     height: ${MAIN_AREA_MOBILE_HEIGHT}px;
   }
 `;
 
 const IndexPage = React.memo(({ pathContext: { locale } }) => {
-  console.log('index render');
   return (
     <Layout locale={locale}>
 
       <StyledMainBg />
       <SEO title="Home" />
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <h1>Hi people testest 2222</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
       <h1>Hi people testest 2222</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>

@@ -18,7 +18,8 @@ import messages_en from "../translations/en.json";
 import Header from "./header"
 import Footer from './footer';
 import {
-  HEADER_HEIGHT,
+  GET_WIDTH,
+  MOBILE_WIDTH,
   MAIN_AREA_DESKTOP_HEIGHT,
   MAIN_AREA_MOBILE_HEIGHT,
 } from 'src/constants/app';
@@ -53,13 +54,16 @@ const Layout = ({ children, locale }) => {
 
   const scrollHandler = useCallback(throttle(() => {
     const scrollTop = wrapperRef.current.scrollTop;
-    if ((scrollTop <= HEADER_HEIGHT) && !showHeader) {
+    const TOP_AREA = (GET_WIDTH() > MOBILE_WIDTH)
+      ? MAIN_AREA_DESKTOP_HEIGHT
+      : MAIN_AREA_MOBILE_HEIGHT;
+
+    if ((scrollTop <= TOP_AREA) && !showHeader) {
       setShowheader(true);
     } else if (showHeader &&
-      scrollTop > (MAIN_AREA_MOBILE_HEIGHT) &&
+      scrollTop > (TOP_AREA) &&
       previousScrollPosition < scrollTop
     ) {
-        console.log('off');
         setShowheader(false);
     } else if (!showHeader &&
       scrollTop < previousScrollPosition
@@ -79,7 +83,6 @@ const Layout = ({ children, locale }) => {
         ref={wrapperRef}
       >
         <Header
-          height={HEADER_HEIGHT}
           showup={showHeader}
         />
         <Main>

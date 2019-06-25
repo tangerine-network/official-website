@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { FormattedMessage } from 'react-intl';
 import styled, { keyframes } from 'styled-components';
-import { HEADER_HEIGHT } from 'src/constants/app';
+import {
+  HEADER_HEIGHT,
+  MOBILE_HEADER_HEIGHT,
+  MOBILE_WIDTH,
+} from 'src/constants/app';
 import Link from 'src/components/Link';
 import Logo from 'src/images/real_orange.png';
 
@@ -46,13 +50,16 @@ const Wrapper = styled.header`
     : ''
   } 0.2s ease-in;
   min-height: ${p => p.height}px;
-  height: ${p => p.height}px;
+  height: ${HEADER_HEIGHT}px;
   display: flex;
   align-items: center;
   background-color: white;
   color: black;
   padding: 0px 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    height: ${MOBILE_HEADER_HEIGHT}px;
+  }
 `;
 
 const PlaceHolder = styled.div`
@@ -64,16 +71,15 @@ const Padding = styled.div`
   padding: 1;
 `;
 
-const Header = ({ height, showup }) => {
+const Header = ({ showup }) => {
   const [enableAnimation, setEnableAnimation] = useState(false);
   if (!showup && !enableAnimation) {
     setEnableAnimation(true);
   }
   return (
     <>
-      <PlaceHolder height={height} />
+      <PlaceHolder />
       <Wrapper
-        height={height}
         control={showup}
         enableAnimation={enableAnimation}
       >
