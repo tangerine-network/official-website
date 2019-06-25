@@ -16,6 +16,7 @@ import messages_zh from "../translations/zh-Hant.json";
 import messages_en from "../translations/en.json";
 import Header from "./header"
 import Footer from './footer';
+import { HEADER_HEIGHT } from 'src/constants/app';
 
 import './layout.css';
 
@@ -38,34 +39,30 @@ const Main = styled.main`
   flex: 1;
 `;
 
-const HEADER_HEIGHT = 90;
 let previousScrollPosition = 0;
 
 const Layout = ({ children, locale }) => {
 
-  const [headerState, setHeaderState] = useState(true);
+  const [showHeader, setShowheader] = useState(true);
   const wrapperRef = useRef(null);
 
   const scrollHandler = useCallback(() => {
     // console.log(wrapperRef.current.scrollTop);
     const scrollTop = wrapperRef.current.scrollTop;
-    if ((scrollTop <= HEADER_HEIGHT) && !headerState) {
-      // console.log('on');
-      setHeaderState(true);
-    } else if (headerState &&
+    if ((scrollTop <= HEADER_HEIGHT) && !showHeader) {
+      setShowheader(true);
+    } else if (showHeader &&
       scrollTop > HEADER_HEIGHT &&
       previousScrollPosition < scrollTop
       ) {
-        setHeaderState(false);
-        // console.log('off');
-    } else if (!headerState &&
+        setShowheader(false);
+    } else if (!showHeader &&
       scrollTop < previousScrollPosition
       ) {
-        setHeaderState(true);
-        // console.log('on');
+        setShowheader(true);
     }
     previousScrollPosition = scrollTop;
-  }, [headerState]);
+  }, [showHeader]);
 
   return (
     <IntlProvider
@@ -76,7 +73,10 @@ const Layout = ({ children, locale }) => {
         onScroll={scrollHandler}
         ref={wrapperRef}
       >
-        <Header height={HEADER_HEIGHT} />
+        <Header
+          height={HEADER_HEIGHT}
+          showup={showHeader}
+        />
         <Main>
           {children}
           {children}
