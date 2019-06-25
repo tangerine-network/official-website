@@ -24,8 +24,6 @@ import {
   MAIN_AREA_MOBILE_HEIGHT,
 } from 'src/constants/app';
 
-import './layout.css';
-
 addLocaleData([...en, ...zh]);
 
 const messages = {
@@ -34,7 +32,10 @@ const messages = {
 };
 
 const Wrapper = styled.div`
+  position: relative;
   height: 100vh;
+  width: 100%;
+  max-width: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -82,9 +83,7 @@ const Layout = ({ children, locale }) => {
         onScroll={scrollHandler}
         ref={wrapperRef}
       >
-        <Header
-          showup={showHeader}
-        />
+        <Header showup={showHeader} />
         <Main>
           {children}
         </Main>

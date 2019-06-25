@@ -33,7 +33,6 @@ const MainBgImg = ({ className }) => {
 }
 
 const StyledMainBg = styled(MainBgImg)`
-  border: 1px solid black;
   position: relative;
   width: 100%;
   height: ${MAIN_AREA_DESKTOP_HEIGHT}px;
