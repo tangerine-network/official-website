@@ -32,10 +32,10 @@ const Wrapper = styled.div`
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  -webkit-overflow-scrolling: touch;
 `;
 
 const Main = styled.main`
-  border: 1px solid red;
   flex: 1;
 `;
 
@@ -47,7 +47,6 @@ const Layout = ({ children, locale }) => {
   const wrapperRef = useRef(null);
 
   const scrollHandler = useCallback(() => {
-    // console.log(wrapperRef.current.scrollTop);
     const scrollTop = wrapperRef.current.scrollTop;
     if ((scrollTop <= HEADER_HEIGHT) && !showHeader) {
       setShowheader(true);
