@@ -7,6 +7,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.1",
     "gatsby": "^2.10.0",
+    "gatsby-background-image": "^0.7.3",
     "gatsby-image": "^2.2.1",
     "gatsby-plugin-manifest": "^2.2.0",
     "gatsby-plugin-offline": "^2.2.0",
@@ -16,6 +17,8 @@
     "gatsby-plugin-styled-components": "^3.1.0",
     "gatsby-source-filesystem": "^2.1.0",
     "gatsby-transformer-sharp": "^2.2.0",
+    "intersection-observer": "^0.7.0",
+    "lodash-es": "^4.17.11",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

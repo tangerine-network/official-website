@@ -1,8 +1,23 @@
-import { Link } from "gatsby";
 import React, { useState } from "react";
 import { FormattedMessage } from 'react-intl';
 import styled, { keyframes } from 'styled-components';
 import { HEADER_HEIGHT } from 'src/constants/app';
+import Link from 'src/components/Link';
+import Logo from 'src/images/real_orange.png';
+
+const LogoImg = styled.img`
+  height: 50px;
+  width: 50px;
+`;
+const Title = styled.span`
+  font-weight: bold;
+  font-size: xx-large;
+  margin: 0px 20px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+`;
 
 const popup = keyframes`
   from {
@@ -17,7 +32,7 @@ const hide = keyframes`
     top: 0px;
   }
   to {
-    top: -${HEADER_HEIGHT}px;
+    top: -${HEADER_HEIGHT + 5}px;
   }
 `;
 
@@ -34,15 +49,19 @@ const Wrapper = styled.header`
   height: ${p => p.height}px;
   display: flex;
   align-items: center;
-  background-color: orange;
-  color: white;
-  font-weight: bold;
-  font-size: xx-large;
+  background-color: white;
+  color: black;
+  padding: 0px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 `;
 
 const PlaceHolder = styled.div`
   min-height: ${p => p.height}px;
   height: ${p => p.height}px;
+`;
+
+const Padding = styled.div`
+  padding: 1;
 `;
 
 const Header = ({ height, showup }) => {
@@ -58,18 +77,18 @@ const Header = ({ height, showup }) => {
         control={showup}
         enableAnimation={enableAnimation}
       >
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          <FormattedMessage
-            id="Tangerine Network"
-            defaultMessage="Tangerine Network"
-          />
-        </Link>
+        <LogoImg src={Logo} />
+        <Title>
+          <Link
+            to="/"
+          >
+            <FormattedMessage
+              id="Tangerine Network"
+              defaultMessage="Tangerine Network"
+            />
+          </Link>
+        </Title>
+        <Padding />
       </Wrapper>
     </>
   );

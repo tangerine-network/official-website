@@ -12,11 +12,16 @@ import PropTypes from "prop-types";
 import { IntlProvider } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import zh from 'react-intl/locale-data/zh';
+import throttle from 'lodash-es/throttle';
 import messages_zh from "../translations/zh-Hant.json";
 import messages_en from "../translations/en.json";
 import Header from "./header"
 import Footer from './footer';
-import { HEADER_HEIGHT } from 'src/constants/app';
+import {
+  HEADER_HEIGHT,
+  MAIN_AREA_DESKTOP_HEIGHT,
+  MAIN_AREA_MOBILE_HEIGHT,
+} from 'src/constants/app';
 
 import './layout.css';
 
@@ -46,14 +51,15 @@ const Layout = ({ children, locale }) => {
   const [showHeader, setShowheader] = useState(true);
   const wrapperRef = useRef(null);
 
-  const scrollHandler = useCallback(() => {
+  const scrollHandler = useCallback(throttle(() => {
     const scrollTop = wrapperRef.current.scrollTop;
     if ((scrollTop <= HEADER_HEIGHT) && !showHeader) {
       setShowheader(true);
     } else if (showHeader &&
-      scrollTop > HEADER_HEIGHT &&
+      scrollTop > (MAIN_AREA_MOBILE_HEIGHT) &&
       previousScrollPosition < scrollTop
-      ) {
+    ) {
+        console.log('off');
         setShowheader(false);
     } else if (!showHeader &&
       scrollTop < previousScrollPosition
@@ -61,7 +67,7 @@ const Layout = ({ children, locale }) => {
         setShowheader(true);
     }
     previousScrollPosition = scrollTop;
-  }, [showHeader]);
+  }, 100), [showHeader]);
 
   return (
     <IntlProvider
@@ -77,11 +83,6 @@ const Layout = ({ children, locale }) => {
           showup={showHeader}
         />
         <Main>
-          {children}
-          {children}
-          {children}
-          {children}
-          {children}
           {children}
         </Main>
         <Footer />
