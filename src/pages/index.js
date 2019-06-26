@@ -30,15 +30,15 @@ const rotate = keyframes`
 
 const ChainLine = styled.img`
   position: absolute;
-  width: 105%;
+  width: 120%;
   top: 100px;
-  animation: ${rotate} 8s ease-in-out infinite;
+  animation: ${rotate} 10s ease-in-out infinite;
   @media screen and (max-width: 1300px) {
     top: 180px;
   }
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     top: 120px;
-    width: 1000px;
+    width: 800px;
   }
 `;
 
@@ -88,6 +88,9 @@ const SectionWrapper = styled.div`
   }
   &:nth-child(odd) {
     background-color: white;
+  }
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    padding: 60px 5px;
   }
 `;
 const SectionTitle = styled.div`
