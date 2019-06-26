@@ -11,26 +11,27 @@ import {
   MAIN_AREA_MOBILE_HEIGHT,
   MOBILE_WIDTH,
 } from 'src/constants/app';
+import PartnerList from 'src/components/LandingPage/PartnerList';
 import chain_lines from 'src/images/main-chainlines.svg';
 const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
 
 const rotate = keyframes`
   0% {
-    transform: scale(1, 0.8);
+    transform: scale(0.9, 1.1);
   }
   50% {
-    transform: scale(1, 1.2);
+    transform: scale(1.1, 0.9);
   }
   100% {
-    transform: scale(1, 0.8);
+    transform: scale(0.9, 1.1);
   }
 `;
 
 const ChainLine = styled.img`
   position: absolute;
-  height: 70%;
-  bottom: 5%;
-  animation: ${rotate} 10s ease-out infinite;
+  width: 150%;
+  bottom: 0%;
+  animation: ${rotate} 10s ease-in-out infinite;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     width: 1000px;
   }
@@ -71,6 +72,18 @@ const BigContext = styled.div`
   color: white;
   text-align: center;
   padding: 10px;
+`;
+
+const Sections = styled.div`
+`;
+const Section = styled.div`
+  padding: 20px;
+  &:nth-child(even) {
+    background-color: #F8F8F8;
+  }
+  &:nth-child(odd) {
+    background-color: white;
+  }
 `;
 
 const MainBgImg = ({ className }) => {
