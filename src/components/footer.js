@@ -2,15 +2,16 @@ import React from "react";
 import styled from 'styled-components';
 
 const Wrapper = styled.footer`
-  padding: 20px;
+  padding: 75px 0px 30px;
   color: white;
-  font-size: xx-large;
-  background-color: gray;
+  text-align: center;
+  background-color: #282625;
+  font-family: Lato;
 `;
 
 const Footer = () => (
   <Wrapper>
-    我是一個FOOTER
+    © Copyright 2019 Tangerine Network - All Rights Reserved.
   </Wrapper>
 );
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from 'gatsby';
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Link from 'src/components/Link';
 import { FormattedMessage } from 'react-intl';
 import Layout from "../components/layout";
@@ -11,9 +11,33 @@ import {
   MAIN_AREA_MOBILE_HEIGHT,
   MOBILE_WIDTH,
 } from 'src/constants/app';
-
+import chain_lines from 'src/images/main-chainlines.svg';
 const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
+
+const rotate = keyframes`
+  0% {
+    transform: scale(1, 0.8);
+  }
+  50% {
+    transform: scale(1, 1.2);
+  }
+  100% {
+    transform: scale(1, 0.8);
+  }
+`;
+
+const ChainLine = styled.img`
+  position: absolute;
+  height: 70%;
+  bottom: 5%;
+  animation: ${rotate} 10s ease-out infinite;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    width: 1000px;
+  }
+`;
+
 const BigCircle = styled.div`
+  z-index: 500;
   position: relative;
   width: 400px;
   height: 400px;
@@ -38,7 +62,7 @@ const BigTitle = styled.div`
   font-size: 50px;
   font-weight: bold;
   margin: 10px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 10px rgba(100, 100, 0, 0.5);
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     font-size: 35px;
   }
@@ -79,6 +103,7 @@ const MainBgImg = ({ className }) => {
       </BigContext>
       <Padding />
     </BigCircle>
+    <ChainLine src={chain_lines} />
   </BackgroundImage>;
 }
 

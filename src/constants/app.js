@@ -32,5 +32,8 @@ export const MENU_ITEMS = [
   },
   {
     localeKey: 'Language',
+    subItems: [
+      {}
+    ],
   }
 ];
