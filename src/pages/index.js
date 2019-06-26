@@ -13,27 +13,31 @@ import {
 } from 'src/constants/app';
 import PartnerList from 'src/components/LandingPage/PartnerList';
 import Tech from 'src/components/LandingPage/Tech';
-import chain_lines from 'src/images/main-chainlines.svg';
+import chain_lines from 'src/images/main-chainlines-3.svg';
 const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
 
 const rotate = keyframes`
   0% {
-    transform: scale(1, 1);
+    transform: scale(1, 0.8) rotate(5deg) skew(0deg, 0deg);
   }
   50% {
-    transform: scale(1.05, 0.9);
+    transform: scale(1, 1.2) rotate(0deg) skew(-10deg, 0deg);
   }
   100% {
-    transform: scale(1, 1);
+    transform: scale(1, 0.8) rotate(5deg) skew(0deg, 0deg);
   }
 `;
 
 const ChainLine = styled.img`
   position: absolute;
-  width: 150%;
-  animation: ${rotate} 10s ease-in-out infinite;
-  left: 2%;
+  width: 105%;
+  top: 100px;
+  animation: ${rotate} 8s ease-in-out infinite;
+  @media screen and (max-width: 1300px) {
+    top: 180px;
+  }
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    top: 120px;
     width: 1000px;
   }
 `;
@@ -64,7 +68,7 @@ const BigTitle = styled.div`
   font-size: 50px;
   font-weight: bold;
   margin: 10px;
-  text-shadow: 0 0 10px rgba(100, 100, 0, 0.5);
+  text-shadow: 0 0 10px rgba(100, 100, 0, 0.3);
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     font-size: 35px;
   }
@@ -89,7 +93,7 @@ const SectionWrapper = styled.div`
 const SectionTitle = styled.div`
   text-align: center;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
   padding: 25px;
   margin-bottom: 60px;
   color: #282625;

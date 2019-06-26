@@ -3,6 +3,12 @@
   "Language": "語言",
   "Technology": "技術",
   "Team": "團隊",
-  "Rech Support": "Rech 支援",
-  "Media": "媒體"
+  "Tech Support": "技術支援",
+  "Media": "媒體",
+  "Fast": "超級快",
+  "Fair": "頗公平",
+  "Secure Randomness": "很隨機",
+  "tech-fast-description": "Dream applications come true with the amazing sub-second finality.",
+  "tech-fair-description": "Our cutting-edge fair consensus algorithm makes Tangerine network achieve much stabler than other blockchains.",
+  "tech-secure-randomness": "Applications which need randomness such as gaming and sortition complete their functionality securely."
 }

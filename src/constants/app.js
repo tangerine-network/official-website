@@ -1,7 +1,7 @@
 export const HEADER_HEIGHT = 90;
 export const MOBILE_HEADER_HEIGHT = 40;
 export const MOBILE_WIDTH = 800;
-export const MAIN_AREA_DESKTOP_HEIGHT = 727;
+export const MAIN_AREA_DESKTOP_HEIGHT = 645;
 export const MAIN_AREA_MOBILE_HEIGHT = 500;
 
 // in order for static files to be built gracefully we need the following...
@@ -25,7 +25,7 @@ export const MENU_ITEMS = [
     localeKey: 'Team',
   },
   {
-    localeKey: 'Rech Support',
+    localeKey: 'Tech Support',
   },
   {
     localeKey: 'Media',
