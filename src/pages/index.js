@@ -12,16 +12,21 @@ import {
   MOBILE_WIDTH,
 } from 'src/constants/app';
 
-
+const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
 const BigCircle = styled.div`
   position: relative;
   width: 400px;
   height: 400px;
   border-radius: 100%;
-  border: 3px solid white;
+  border: 3px solid rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow:  inset ${CIRCLE_SHADOW}, ${CIRCLE_SHADOW};
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
 const Padding = styled.div`
   flex: 1;
@@ -33,6 +38,10 @@ const BigTitle = styled.div`
   font-size: 50px;
   font-weight: bold;
   margin: 10px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    font-size: 35px;
+  }
 `;
 const BigContext = styled.div`
   color: white;
