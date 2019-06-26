@@ -4,5 +4,11 @@
   "Technology": "Technology",
   "Team": "Team",
   "Rech Support": "Rech Support",
-  "Media": "Media"
+  "Media": "Media",
+  "Fast": "Fast",
+  "Fair": "Fair",
+  "Secure Randomness": "Secure Randomness",
+  "tech-fast-description": "Dream applications come true with the amazing sub-second finality.",
+  "tech-fair-description": "Our cutting-edge fair consensus algorithm makes Tangerine network achieve much stabler than other blockchains.",
+  "tech-secure-randomness": "Applications which need randomness such as gaming and sortition complete their functionality securely."
 }

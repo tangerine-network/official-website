@@ -3,9 +3,24 @@ import styled from 'styled-components';
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
-export const Partners = () => {
+const GridLayout = styled.div`
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 40px 20px;
+  /* border: 1px solid red; */
+`;
+
+const Item = styled.div`
+  text-align: center;
+  /* border: 1px solid black; */
+`;
+
+const Partners = () => {
   const data = useStaticQuery(graphql`
     query {
       stone: file(relativePath: { eq: "stone.png" }) {
@@ -22,7 +37,21 @@ export const Partners = () => {
           }
         }
       }
-      taihu: file(relativePath: { eq: "taihu.png" }) {
+      taihu: file(relativePath: { eq: "taihu_brew.png" }) {
+        childImageSharp {
+          fixed(height: 80) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      orange_house: file(relativePath: { eq: "orange_house.png" }) {
+        childImageSharp {
+          fixed(height: 80) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      gamania: file(relativePath: { eq: "gama_pay.png" }) {
         childImageSharp {
           fixed(height: 80) {
             ...GatsbyImageSharpFixed
@@ -32,17 +61,19 @@ export const Partners = () => {
     }
   `);
   return [
-    <Img key="stone" fixed={data.stone.childImageSharp.fixed} />,
-    <Img key="flying monkey" fixed={data.flyingMokney.childImageSharp.fixed} />,
-    <Img key="taihu" fixed={data.taihu.childImageSharp.fixed} />
-  ];
-  // return null;
+    <Img fixed={data.stone.childImageSharp.fixed} />,
+    <Img fixed={data.flyingMokney.childImageSharp.fixed} />,
+    <Img fixed={data.taihu.childImageSharp.fixed} />,
+    <Img fixed={data.orange_house.childImageSharp.fixed} />,
+    <Img fixed={data.gamania.childImageSharp.fixed} />,
+  ].map((it, key) => <Item key={key}>{it}</Item>);
 }
-
 
 const PartnerList = () => (
   <Wrapper>
-    <Partners />
+    <GridLayout>
+      <Partners />
+    </GridLayout>
   </Wrapper>
 );
 

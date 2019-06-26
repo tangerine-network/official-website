@@ -12,26 +12,27 @@ import {
   MOBILE_WIDTH,
 } from 'src/constants/app';
 import PartnerList from 'src/components/LandingPage/PartnerList';
+import Tech from 'src/components/LandingPage/Tech';
 import chain_lines from 'src/images/main-chainlines.svg';
 const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
 
 const rotate = keyframes`
   0% {
-    transform: scale(0.9, 1.1);
+    transform: scale(1, 1);
   }
   50% {
-    transform: scale(1.1, 0.9);
+    transform: scale(1.05, 0.9);
   }
   100% {
-    transform: scale(0.9, 1.1);
+    transform: scale(1, 1);
   }
 `;
 
 const ChainLine = styled.img`
   position: absolute;
   width: 150%;
-  bottom: 0%;
   animation: ${rotate} 10s ease-in-out infinite;
+  left: 2%;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     width: 1000px;
   }
@@ -76,8 +77,8 @@ const BigContext = styled.div`
 
 const Sections = styled.div`
 `;
-const Section = styled.div`
-  padding: 20px;
+const SectionWrapper = styled.div`
+  padding: 60px 20px;
   &:nth-child(even) {
     background-color: #F8F8F8;
   }
@@ -85,6 +86,20 @@ const Section = styled.div`
     background-color: white;
   }
 `;
+const SectionTitle = styled.div`
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  padding: 25px;
+  margin-bottom: 60px;
+  color: #282625;
+`;
+const Section = ({ children, title }) => (
+  <SectionWrapper>
+    {title && (<SectionTitle>{title}</SectionTitle>)}
+    {children}
+  </SectionWrapper>
+);
 
 const MainBgImg = ({ className }) => {
   const data = useStaticQuery(graphql`
@@ -136,70 +151,25 @@ const MainArea = styled(MainBgImg)`
 const IndexPage = React.memo(({ pathContext: { locale } }) => {
   return (
     <Layout locale={locale}>
-
       <MainArea />
       <SEO title="Home" />
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people testest 2222</h1>
-      <p>Welcome to your new Gatsby site.</p>
-
-      <FormattedMessage
-        id="Tangerine Network"
-        defaultMessage="Tangerine Network"
-      />
+      <Sections>
+        <Section><PartnerList /></Section>
+        <Section
+          title={
+            <FormattedMessage
+              id="Technology"
+              defaultMessage="Technology"
+            />
+          }
+        >
+          <Tech />
+        </Section>
+        <Section>123</Section>
+        <Section>123</Section>
+        <Section>123</Section>
+        <Section>123</Section>
+      </Sections>
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   );
