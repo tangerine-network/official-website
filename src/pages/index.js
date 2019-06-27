@@ -22,12 +22,15 @@ const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
 const rotate = keyframes`
   0% {
     transform: scale(1, 0.8) skew(0deg, 0deg);
+    -webkit-transform: scale(1, 0.8) skew(0deg, 0deg);
   }
   50% {
     transform: scale(1, 1.1) skew(-10deg, 0deg);
+    -webkit-transform: scale(1, 1.1) skew(-10deg, 0deg);
   }
   100% {
     transform: scale(1, 0.8) skew(0deg, 0deg);
+    -webkit-transform: scale(1, 0.8) skew(0deg, 0deg);
   }
 `;
 
@@ -36,7 +39,7 @@ const ChainLine = styled.img`
   position: absolute;
   width: 110%;
   top: 50px;
-  animation: ${rotate} 8s ease-in-out infinite;
+  animation: ${rotate} 6s ease-in-out infinite;
   @media screen and (max-width: 1300px) {
     width: 120%;
     top: 180px;
@@ -167,6 +170,7 @@ const IndexPage = React.memo(({ pathContext: { locale } }) => {
       <Sections>
         <Section><PartnerList /></Section>
         <Section
+          id="technology"
           title={
             <FormattedMessage
               id="Technology"

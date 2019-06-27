@@ -1,5 +1,5 @@
 export const HEADER_HEIGHT = 90;
-export const MOBILE_HEADER_HEIGHT = 40;
+export const MOBILE_HEADER_HEIGHT = 60;
 export const MOBILE_WIDTH = 800;
 export const MAIN_AREA_DESKTOP_HEIGHT = 645;
 export const MAIN_AREA_MOBILE_HEIGHT = 500;

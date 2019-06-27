@@ -14,8 +14,14 @@ const Wrapper = styled.div`
 `;
 
 const HarvestLogo = styled.img`
-  width: 50%;
-  max-width: 481px;
+  @media screen and (min-width: ${MOBILE_WIDTH}px) {
+    max-width: 481px;
+  }
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    width: 95%;
+    height: auto;
+    margin: 10px 0px;
+  }
 `;
 const ContextArea = styled.div`
   flex: 1;
@@ -26,7 +32,7 @@ const ContextArea = styled.div`
 
 const Context = styled.div`
   /* border: 1px solid red; */
-  width: 300px;
+  /* width: 300px; */
   padding: 20px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     width: 100%;

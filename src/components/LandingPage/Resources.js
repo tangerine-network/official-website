@@ -57,10 +57,10 @@ const Resources = () => (
         />
       </Title>
       <Content>哈囉哈囉123, 你好哈哈哈</Content>
-      <ExtLink>      
+      <ExtLink>
         <FormattedMessage
           id="Learn More"
-        /> 
+        />
         >
       </ExtLink>
     </Card>

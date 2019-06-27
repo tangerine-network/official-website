@@ -7,22 +7,37 @@ import {
   MOBILE_WIDTH,
   MENU_ITEMS,
 } from 'src/constants/app';
-import Link from 'src/components/Link';
-import Logo from 'src/images/real_orange.png';
+// import Link from 'src/components/Link';
+import Logo from 'src/images/tangerine-logo.svg';
+import memu from 'src/images/menu-mobile.svg';
+import closeSvg from 'src/images/close.svg';
 
 const LogoImg = styled.img`
-  height: 50px;
-  width: 50px;
-  margin: 0px 20px;
-`;
-const Title = styled.span`
-  font-weight: bold;
-  font-size: x-large;
-  a {
-    text-decoration: none;
-    color: black;
+  /* border: 1px solid black; */
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    height: 30px;
   }
 `;
+const MenuImg = styled.img`
+  height: 25px;
+  @media screen and (min-width: ${MOBILE_WIDTH}px) {
+    display: none;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+`;
+// const Title = styled.span`
+//   font-weight: bold;
+//   font-size: x-large;
+//   a {
+//     text-decoration: none;
+//     color: black;
+//   }
+//   @media screen and (max-width: ${MOBILE_WIDTH}px) {
+//     font-size: small;
+//   }
+// `;
 
 const popup = keyframes`
   from {
@@ -45,8 +60,7 @@ const Wrapper = styled.header`
   position: fixed;
   width: 100vw;
   max-width: 100vw;
-  z-index: 1000;
-  /* left: -16px; */
+  z-index: 100;
   top: ${p => p.control ? 0 : -HEADER_HEIGHT}px;
   animation: ${p => p.enableAnimation
     ? (p.control ? popup : hide)
@@ -58,10 +72,11 @@ const Wrapper = styled.header`
   align-items: center;
   background-color: white;
   color: black;
-  /* padding: 0px 20px; */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0px 60px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     height: ${MOBILE_HEADER_HEIGHT}px;
+    padding: 0px 20px;
   }
 `;
 
@@ -78,7 +93,7 @@ const Padding = styled.div`
   flex: 1;
 `;
 const MenuItem = styled.div`
-  margin: 0px 15px;
+  margin-left: 50px;
   text-align: center;
   cursor: pointer;
   font-size: x-largre;
@@ -90,22 +105,76 @@ const ItemArea = styled.div`
   display: flex;
   /* border: 1px solid red; */
   margin: 20px;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    display: none;
+  }
+`;
+
+const MobilePopup = keyframes`
+  from {
+    opacity: 0;
+    z-index: -1;
+  }
+  to {
+    opacity: 1;
+    z-index: 1001;
+  }
+`;
+const MobileHide = keyframes`
+  from {
+    opacity: 1;
+    z-index: 1001;
+  }
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
+`;
+
+const MobileMenu = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: ${p => p.show ? 1001 : -1};;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  opacity: ${p => p.show ? 1 : 0};
+  animation: ${p => (p.show !== null)
+    ? (p.show ? MobilePopup : MobileHide)
+    : ''
+  } 0.2s ease-out;
+`;
+const CloseIcon = styled.img`
+  width: 34px;
+  cursor: pointer;
 `;
 
 const Header = ({ showup }) => {
   const [enableAnimation, setEnableAnimation] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(null);
   if (!showup && !enableAnimation) {
     setEnableAnimation(true);
   }
   return (
     <>
+      <MobileMenu show={mobileMenu}>
+        <CloseIcon
+          onClick={() => {
+            setMobileMenu(false);
+          }}
+          src={closeSvg}
+        />
+      </MobileMenu>
       <PlaceHolder />
       <Wrapper
         control={showup}
         enableAnimation={enableAnimation}
       >
         <LogoImg src={Logo} />
-        <Title>
+        {/* <Title>
           <Link
             to="/"
           >
@@ -114,7 +183,7 @@ const Header = ({ showup }) => {
               defaultMessage="Tangerine Network"
             />
           </Link>
-        </Title>
+        </Title> */}
         <Padding />
         <ItemArea>
           {MENU_ITEMS.map(it => (
@@ -125,6 +194,12 @@ const Header = ({ showup }) => {
             </MenuItem>
           ))}
         </ItemArea>
+        <MenuImg
+          onClick={() => {
+            setMobileMenu(true);
+          }}
+          src={memu}
+        />
       </Wrapper>
     </>
   );
