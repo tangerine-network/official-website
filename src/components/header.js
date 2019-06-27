@@ -7,7 +7,8 @@ import {
   MOBILE_WIDTH,
   MENU_ITEMS,
 } from 'src/constants/app';
-// import Link from 'src/components/Link';
+import Locales from 'src/constants/locales';
+import Link from 'src/components/Link';
 import Logo from 'src/images/tangerine-logo.svg';
 import memu from 'src/images/menu-mobile.svg';
 import closeSvg from 'src/images/close.svg';
@@ -27,17 +28,6 @@ const MenuImg = styled.img`
     cursor: pointer;
   }
 `;
-// const Title = styled.span`
-//   font-weight: bold;
-//   font-size: x-large;
-//   a {
-//     text-decoration: none;
-//     color: black;
-//   }
-//   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-//     font-size: small;
-//   }
-// `;
 
 const popup = keyframes`
   from {
@@ -103,7 +93,6 @@ const MenuItem = styled.div`
 `;
 const ItemArea = styled.div`
   display: flex;
-  /* border: 1px solid red; */
   margin: 20px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     display: none;
@@ -152,6 +141,10 @@ const CloseIcon = styled.img`
   cursor: pointer;
 `;
 
+const MobileMenuItem = styled.div`
+  margin: 20px 0px;
+`;
+
 const Header = ({ showup }) => {
   const [enableAnimation, setEnableAnimation] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(null);
@@ -167,6 +160,31 @@ const Header = ({ showup }) => {
           }}
           src={closeSvg}
         />
+        <Padding />
+        {MENU_ITEMS.map(it => (
+          <MobileMenuItem key={it.localeKey}>
+            <FormattedMessage
+              id={it.localeKey}
+            />
+          </MobileMenuItem>
+        ))}
+        <Padding />
+        {Object.keys(Locales).map((it, key) => (it !== 'default') && (
+          <Link
+            ignoreLocale
+            to={Locales[it].path}
+            key={it}
+          >
+            <MobileMenuItem
+              onClick={() => setMobileMenu(false)}
+            >
+              {Locales[it].locale}
+            </MobileMenuItem>
+          </Link>
+        ))}
+        <Padding />
+        <Padding />
+        <Padding />
       </MobileMenu>
       <PlaceHolder />
       <Wrapper
@@ -193,6 +211,11 @@ const Header = ({ showup }) => {
               />
             </MenuItem>
           ))}
+          <MenuItem key="Language">
+            <FormattedMessage
+              id="Language"
+            />
+          </MenuItem>
         </ItemArea>
         <MenuImg
           onClick={() => {
