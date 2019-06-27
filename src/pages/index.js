@@ -106,8 +106,8 @@ const SectionTitle = styled.div`
   padding: 60px 0px 30px;
   color: #282625;
 `;
-const Section = ({ children, title }) => (
-  <SectionWrapper>
+const Section = ({ children, title, id }) => (
+  <SectionWrapper id={id}>
     {title && (<SectionTitle>{title}</SectionTitle>)}
     {children}
   </SectionWrapper>
@@ -181,6 +181,7 @@ const IndexPage = React.memo(({ pathContext: { locale } }) => {
           <Tech />
         </Section>
         <Section
+          id="resources"
           title={
             <FormattedMessage
               id="technical-resources"

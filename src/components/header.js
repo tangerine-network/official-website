@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FormattedMessage } from 'react-intl';
+import { navigate } from '@reach/router';
 import styled, { keyframes } from 'styled-components';
 import {
   HEADER_HEIGHT,
@@ -162,11 +163,13 @@ const Header = ({ showup }) => {
         />
         <Padding />
         {MENU_ITEMS.map(it => (
-          <MobileMenuItem key={it.localeKey}>
-            <FormattedMessage
-              id={it.localeKey}
-            />
-          </MobileMenuItem>
+          <Link key={it.localeKey} to={it.link}>
+            <MobileMenuItem onClick={() => setMobileMenu(false)}>
+              <FormattedMessage
+                id={it.localeKey}
+              />
+            </MobileMenuItem>
+          </Link>
         ))}
         <Padding />
         {Object.keys(Locales).map((it, key) => (it !== 'default') && (
@@ -205,11 +208,15 @@ const Header = ({ showup }) => {
         <Padding />
         <ItemArea>
           {MENU_ITEMS.map(it => (
-            <MenuItem key={it.localeKey}>
-              <FormattedMessage
-                id={it.localeKey}
-              />
-            </MenuItem>
+            <Link key={it.localeKey} to={it.link}>
+              <MenuItem
+                key={it.localeKey}
+              >
+                <FormattedMessage
+                  id={it.localeKey}
+                />
+              </MenuItem>
+            </Link>
           ))}
           <MenuItem key="Language">
             <FormattedMessage

@@ -20,9 +20,11 @@ export const GET_WIDTH = () => WIDTH;
 export const MENU_ITEMS = [
   {
     localeKey: 'Technology',
+    link: '#technology',
   },
   {
     localeKey: 'Tech Support',
+    link: '#resources'
   },
   // {
   //   localeKey: 'Media',
