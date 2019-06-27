@@ -21,15 +21,15 @@ export const MENU_ITEMS = [
   {
     localeKey: 'Technology',
   },
-  {
-    localeKey: 'Team',
-  },
+  // {
+  //   localeKey: 'Team',
+  // },
   {
     localeKey: 'Tech Support',
   },
-  {
-    localeKey: 'Media',
-  },
+  // {
+  //   localeKey: 'Media',
+  // },
   {
     localeKey: 'Language',
     subItems: [

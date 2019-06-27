@@ -1,5 +1,6 @@
 {
   "Tangerine Network": "Tangerine Network",
+  "tangerine-description": "Tangerine Network is a distributed ledger technology designed to solve the problems inherent in other blockchain systems.",
   "Language": "Language",
   "Technology": "Technology",
   "Team": "Team",
@@ -10,5 +11,11 @@
   "Secure Randomness": "Secure Randomness",
   "tech-fast-description": "Dream applications come true with the amazing sub-second finality.",
   "tech-fair-description": "Our cutting-edge fair consensus algorithm makes Tangerine network achieve much stabler than other blockchains.",
-  "tech-secure-randomness": "Applications which need randomness such as gaming and sortition complete their functionality securely."
+  "tech-secure-randomness": "Applications which need randomness such as gaming and sortition complete their functionality securely.",
+  "technical-resources": "Technical Resources",
+  "dapp-dev-guide": "DApp Development Guide",
+  "Harvest Program": "Harvest Program",
+  "harvest-description": "Be part of the Tangerine Network ecosystem and earn up to 6 million TAN.",
+  "Join Partner Program": "Join Partner Program",
+  "Learn More": "Learn More"
 }

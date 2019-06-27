@@ -5,6 +5,9 @@ import { FormattedMessage } from 'react-intl';
 import fastSVG from 'src/images/tech-fast.svg';
 import fairSVG from 'src/images/tech-fair.svg';
 import secureRandomnessSVG from 'src/images/tech-secure-randomness.svg';
+import {
+  MOBILE_WIDTH,
+} from 'src/constants/app';
 
 const items = [{
   img: fastSVG,
@@ -21,15 +24,24 @@ const items = [{
 }];
 
 const Wrapper = styled.div`
-  padding: 0px 20px;
+  padding: 0px 100px 60px;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    padding: 0px 50px 60px;
+  }
 `;
 
 const Item = styled.div`
   display: flex;
-  &:nth-child(even) {
-    flex-direction: row-reverse;
-  }
+  align-items: center;
   margin-top: 80px;
+  @media screen and (min-width: ${MOBILE_WIDTH}px) {
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    flex-direction: column;
+  }
 `;
 const ImgWrapper = styled.div`
   flex: 1;
@@ -37,27 +49,39 @@ const ImgWrapper = styled.div`
 `;
 const Img = styled.img`
   height: 235px;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    height: 200px;
+  }
 `;
 const Desc = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  ${p => p.reverse && `
-    align-items: flex-end;
-  `}
+  @media screen and (min-width: ${MOBILE_WIDTH}px) {
+    ${p => p.reverse && `
+      align-items: flex-end;
+    `}
+  }
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    text-align: center;
+    font-size: small;
+  }
 `;
 const Title = styled.div`
   color: #c45b26;
   font-weight: bold;
   font-size: x-large;
-  margin: 10px 0px;
+  margin: 20px 0px;
 `;
 const Content = styled.div`
+
   font-size: larger;
   color: #282625;
-  max-width: 280px;
-  ${p => p.reverse && 'text-align: right;'}
+  @media screen and (min-width: ${MOBILE_WIDTH}px) {
+    ${p => p.reverse && 'text-align: right;'}
+    max-width: 280px;
+  }
 `;
 const Padding = styled.div`
   width: 76px;

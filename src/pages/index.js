@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from 'gatsby';
 import styled, { keyframes } from "styled-components";
-import Link from 'src/components/Link';
+// import Link from 'src/components/Link';
 import { FormattedMessage } from 'react-intl';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -13,32 +13,38 @@ import {
 } from 'src/constants/app';
 import PartnerList from 'src/components/LandingPage/PartnerList';
 import Tech from 'src/components/LandingPage/Tech';
-import chain_lines from 'src/images/main-chainlines-3.svg';
+import Resources from 'src/components/LandingPage/Resources';
+import Harvest from 'src/components/LandingPage/Harvest';
+import chain_lines from 'src/images/main-chainlines-2.svg';
+import chain_lines_blur from 'src/images/main-chainlines-3.svg';
 const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
 
 const rotate = keyframes`
   0% {
-    transform: scale(1, 0.8) rotate(5deg) skew(0deg, 0deg);
+    transform: scale(1, 0.8) skew(0deg, 0deg);
   }
   50% {
-    transform: scale(1, 1.2) rotate(0deg) skew(-10deg, 0deg);
+    transform: scale(1, 1.1) skew(-10deg, 0deg);
   }
   100% {
-    transform: scale(1, 0.8) rotate(5deg) skew(0deg, 0deg);
+    transform: scale(1, 0.8) skew(0deg, 0deg);
   }
 `;
 
 const ChainLine = styled.img`
+  content: url(${chain_lines_blur});
   position: absolute;
-  width: 120%;
-  top: 100px;
-  animation: ${rotate} 10s ease-in-out infinite;
+  width: 110%;
+  top: 50px;
+  animation: ${rotate} 8s ease-in-out infinite;
   @media screen and (max-width: 1300px) {
+    width: 120%;
     top: 180px;
   }
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     top: 120px;
     width: 800px;
+    content: url(${chain_lines});
   }
 `;
 
@@ -54,8 +60,8 @@ const BigCircle = styled.div`
   align-items: center;
   box-shadow:  inset ${CIRCLE_SHADOW}, ${CIRCLE_SHADOW};
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    width: 300px;
-    height: 300px;
+    width: 273px;
+    height: 273px;
   }
 `;
 const Padding = styled.div`
@@ -70,7 +76,7 @@ const BigTitle = styled.div`
   margin: 10px;
   text-shadow: 0 0 10px rgba(100, 100, 0, 0.3);
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    font-size: 35px;
+    font-size: 33px;
   }
 `;
 const BigContext = styled.div`
@@ -82,23 +88,19 @@ const BigContext = styled.div`
 const Sections = styled.div`
 `;
 const SectionWrapper = styled.div`
-  padding: 60px 20px;
   &:nth-child(even) {
     background-color: #F8F8F8;
   }
   &:nth-child(odd) {
     background-color: white;
   }
-  @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    padding: 60px 5px;
-  }
 `;
 const SectionTitle = styled.div`
   text-align: center;
   font-weight: bold;
   font-size: 30px;
-  padding: 25px;
-  margin-bottom: 60px;
+  /* border: 1px solid red; */
+  padding: 60px 0px 30px;
   color: #282625;
 `;
 const Section = ({ children, title }) => (
@@ -134,11 +136,13 @@ const MainBgImg = ({ className }) => {
         />
       </BigTitle>
       <BigContext>
-        Tangerine Network is a distributed ledger technology designed to solve the problems inherent in other blockchain systems.
+        <FormattedMessage
+          id="tangerine-description"
+        />
       </BigContext>
       <Padding />
     </BigCircle>
-    <ChainLine src={chain_lines} />
+    <ChainLine />
   </BackgroundImage>;
 }
 
@@ -172,12 +176,22 @@ const IndexPage = React.memo(({ pathContext: { locale } }) => {
         >
           <Tech />
         </Section>
-        <Section>123</Section>
-        <Section>123</Section>
-        <Section>123</Section>
-        <Section>123</Section>
+        <Section
+          title={
+            <FormattedMessage
+              id="technical-resources"
+              defaultMessage="Technical Resources"
+            />
+          }
+        >
+          <Resources />
+        </Section>
+        <Section>
+          <Harvest />
+        </Section>
+
       </Sections>
-      <Link to="/page-2/">Go to page 2</Link>
+      {/* <Link to="/page-2/">Go to page 2</Link> */}
     </Layout>
   );
 });

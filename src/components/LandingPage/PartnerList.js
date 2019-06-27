@@ -7,27 +7,25 @@ import {
 } from 'src/constants/app';
 const Wrapper = styled.div`
   width: 100%;
+  padding: 50px 100px;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    padding: 50px 10px;
+  }
 `;
 
 const GridLayout = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* display: grid;
-  justify-content: space-evenly;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 40px 20px;
-  @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px 0px;
-  } */
+  justify-content: center;
 `;
 
 const Item = styled.div`
   flex: 1 0 16%;
   display: flex;
-  padding: 20px 10px;
+  /* padding: 30px 10px; */
   justify-content: center;
   /* border: 1px solid black; */
+  margin: 10px;
   height: 60px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     flex: 1 0 34%;
