@@ -184,6 +184,7 @@ const Header = ({ showup }) => {
         {Object.keys(Locales).map((it, key) => (it !== 'default') && (
           <Link
             ignoreLocale
+            title={Locales[it].locale}
             to={Locales[it].path}
             key={it}
           >

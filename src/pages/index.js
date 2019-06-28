@@ -71,7 +71,7 @@ const BigCircle = styled.div`
 const Padding = styled.div`
   flex: 1;
 `;
-const BigTitle = styled.div`
+const BigTitle = styled.h1`
   white-space: nowrap;
   text-align: center;
   color: white;
@@ -83,10 +83,11 @@ const BigTitle = styled.div`
     font-size: 33px;
   }
 `;
-const BigContext = styled.div`
+const BigContext = styled.h2`
   color: white;
   text-align: center;
   padding: 10px;
+  font-size: 16px;
 `;
 
 const Sections = styled.div`
