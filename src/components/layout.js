@@ -6,15 +6,17 @@
  */
 
 import React, { useCallback, useRef, useState } from "react";
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components";
-import { addLocaleData } from "react-intl";
+import { addLocaleData, injectIntl, IntlProvider } from "react-intl";
 import PropTypes from "prop-types";
-import { IntlProvider } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import zh from 'react-intl/locale-data/zh';
 import throttle from 'lodash-es/throttle';
 import messages_zh from "../translations/zh-Hant.json";
 import messages_en from "../translations/en.json";
+import site_logo from 'src/images/site_logo.png';
 import Header from "./header"
 import Footer from './footer';
 import {
@@ -47,6 +49,54 @@ const Main = styled.main`
 `;
 
 let previousScrollPosition = 0;
+
+const InjectedSEO = injectIntl(({ intl }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
+      }
+    `
+  );
+  return (
+    <Helmet
+      htmlAttributes={{
+        lang: intl.locale || 'en',
+      }}
+    >
+      <title>{intl.formatMessage({ id: 'Tangerine Network' })}</title>
+
+      <link rel="alternate" hreflang="en" href={`${site.siteMetadata.siteUrl}`} />
+      <link rel="alternate" hreflang="en" href={`${site.siteMetadata.siteUrl}/en`} />
+      <link rel="alternate" hreflang="zh-Hant" href={`${site.siteMetadata.siteUrl}/zh-Hant`} />
+
+      <meta name="description" content={intl.formatMessage({ id: 'tangerine-description' })} />
+      <meta name="keywords" content="tangerine, blockchain, decentralized"/>
+      <meta itemprop="type" content="website" />
+      <meta itemprop="image" content={site_logo} />
+
+      <meta property="og:title" content={intl.formatMessage({ id: 'Tangerine Network' })} />
+      <meta property="og:description" content={intl.formatMessage({ id: 'tangerine-description' })} />
+      <meta property="og:type" content="website"/>
+      <meta property="og:image" content={site_logo} />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={intl.formatMessage({ id: 'Tangerine Network' })} />
+      <meta name="twitter:image" content={intl.formatMessage({ id: 'tangerine-description' })} />
+      <meta name="twitter:image:src" content={site_logo} />
+      <meta name="twitter:site" content={intl.formatMessage({ id: 'Tangerine Network' })} />
+      <meta name="twitter:creator" content={intl.formatMessage({ id: 'Tangerine Network' }) } />
+      <meta name="twitter:description" content={intl.formatMessage({ id: 'tangerine-description' })} />
+
+      <meta name="twitter:data1" value="5 min read" />
+      <meta name="twitter:app:name:iphone" content={intl.formatMessage({ id: 'Tangerine Network' }) } />
+    </Helmet>
+  );
+});
 
 const Layout = ({ children, locale }) => {
 
@@ -83,6 +133,8 @@ const Layout = ({ children, locale }) => {
         onScroll={scrollHandler}
         ref={wrapperRef}
       >
+
+        <InjectedSEO />
         <Header showup={showHeader} />
         <Main>
           {children}

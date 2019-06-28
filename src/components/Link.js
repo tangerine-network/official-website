@@ -1,9 +1,9 @@
 
 import React from 'react'
 import { Link } from 'gatsby';
-import { navigate } from '@reach/router';
+// import { navigate } from '@reach/router';
 import styled from 'styled-components';
-import { injectIntl } from 'react-intl'
+import { injectIntl } from 'react-intl';
 
 const StyledLink = styled(Link)`
   text-decoration: none;

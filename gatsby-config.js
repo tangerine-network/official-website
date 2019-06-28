@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Tangerine Network`,
-    description: `Best blockchain network ever`,
-    author: `Byzantine Laboratory`,
+    description: `Tangerine Network is a distributed ledger technology designed to solve the problems inherent in other blockchain systems.`,
+    author: `Tangerine Network`,
+    siteUrl: `https://www.example.com`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-root-import`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,

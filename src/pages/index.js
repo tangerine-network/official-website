@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 // import Link from 'src/components/Link';
 import { FormattedMessage } from 'react-intl';
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+// import SEO from "../components/seo";
 import BackgroundImage from 'gatsby-background-image';
 import {
   MAIN_AREA_DESKTOP_HEIGHT,
@@ -163,11 +163,10 @@ const MainArea = styled(MainBgImg)`
   justify-content: center;
 `;
 
-const IndexPage = React.memo(({ pathContext: { locale } }) => {
+const IndexPage = ({ pageContext: { locale }, intl }) => {
   return (
     <Layout locale={locale}>
       <MainArea />
-      <SEO title="Home" />
       <Sections>
         <Section><PartnerList /></Section>
         <Section
@@ -185,8 +184,7 @@ const IndexPage = React.memo(({ pathContext: { locale } }) => {
           id="resources"
           title={
             <FormattedMessage
-              id="technical-resources"
-              defaultMessage="Technical Resources"
+              id="Tech Support"
             />
           }
         >
@@ -200,6 +198,6 @@ const IndexPage = React.memo(({ pathContext: { locale } }) => {
       {/* <Link to="/page-2/">Go to page 2</Link> */}
     </Layout>
   );
-});
+};
 
-export default IndexPage
+export default IndexPage;
