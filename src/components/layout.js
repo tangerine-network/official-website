@@ -70,12 +70,11 @@ const InjectedSEO = injectIntl(({ intl }) => {
     >
       <title>{intl.formatMessage({ id: 'Tangerine Network' })}</title>
 
-      <link rel="alternate" hreflang="en" href={`${site.siteMetadata.siteUrl}`} />
+      <link rel="canonical" href={`${site.siteMetadata.siteUrl}`} />
       <link rel="alternate" hreflang="en" href={`${site.siteMetadata.siteUrl}/en`} />
       <link rel="alternate" hreflang="zh-Hant" href={`${site.siteMetadata.siteUrl}/zh-Hant`} />
 
       <meta name="description" content={intl.formatMessage({ id: 'tangerine-description' })} />
-      <meta name="keywords" content="tangerine, blockchain, decentralized"/>
       <meta itemprop="type" content="website" />
       <meta itemprop="image" content={site_logo} />
 
@@ -96,6 +95,9 @@ const InjectedSEO = injectIntl(({ intl }) => {
 
       <meta name="twitter:data1" value="5 min read" />
       <meta name="twitter:app:name:iphone" content={intl.formatMessage({ id: 'Tangerine Network' }) } />
+
+      <meta name="keywords" lang="en" content="tangerine, blockchain, decentralized"/>
+      <meta name="keywords" lang="zh" content="去中心化, 區塊鏈"/>
     </Helmet>
   );
 });
