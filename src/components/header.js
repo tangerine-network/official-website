@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FormattedMessage } from 'react-intl';
 // import { navigate } from '@reach/router';
 import styled, { keyframes } from 'styled-components';
@@ -32,18 +32,22 @@ const MenuImg = styled.img`
 
 const popup = keyframes`
   from {
-    top: -${HEADER_HEIGHT}px;
+    /* top: -${HEADER_HEIGHT}px; */
+    opacity: 0;
   }
   to {
-    top: 0;
+    /* top: 0; */
+    opacity: 1;
   }
 `;
 const hide = keyframes`
   from {
-    top: 0px;
+    /* top: 0px; */
+    opacity: 1;
   }
   to {
-    top: -${HEADER_HEIGHT + 5}px;
+    /* top: -${HEADER_HEIGHT + 5}px; */
+    opacity: 0;
   }
 `;
 
@@ -52,11 +56,13 @@ const Wrapper = styled.header`
   width: 100vw;
   max-width: 100vw;
   z-index: 100;
-  top: ${p => p.control ? 0 : -HEADER_HEIGHT}px;
-  animation: ${p => p.enableAnimation
+  /* top: ${p => p.control ? 0 : -HEADER_HEIGHT}px; */
+  opacity: ${p => p.control ? 1 : 0};
+  /* animation: ${p => p.enableAnimation
     ? (p.control ? popup : hide)
     : ''
-  } 0.2s ease-in;
+  } 0.2s ease-in; */
+  animation: ${p => p.control ? popup : hide} 0.1s linear;
   min-height: ${p => p.height}px;
   height: ${HEADER_HEIGHT}px;
   display: flex;
@@ -149,9 +155,12 @@ const MobileMenuItem = styled.div`
 const Header = ({ showup }) => {
   const [enableAnimation, setEnableAnimation] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(null);
-  if (!showup && !enableAnimation) {
-    setEnableAnimation(true);
-  }
+  useEffect(() => {
+    if (!showup && !enableAnimation) {
+      setEnableAnimation(true);
+    }
+  });
+
   return (
     <>
       <MobileMenu show={mobileMenu}>

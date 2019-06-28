@@ -21,16 +21,16 @@ const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
 
 const rotate = keyframes`
   0% {
-    transform: scale(1, 0.8) skew(0deg, 0deg);
     -webkit-transform: scale(1, 0.8) skew(0deg, 0deg);
+    transform: scale(1, 0.8) skew(0deg, 0deg);
   }
   50% {
-    transform: scale(1, 1.1) skew(-10deg, 0deg);
     -webkit-transform: scale(1, 1.1) skew(-10deg, 0deg);
+    transform: scale(1, 1.1) skew(-10deg, 0deg);
   }
   100% {
-    transform: scale(1, 0.8) skew(0deg, 0deg);
     -webkit-transform: scale(1, 0.8) skew(0deg, 0deg);
+    transform: scale(1, 0.8) skew(0deg, 0deg);
   }
 `;
 
