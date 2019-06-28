@@ -49,6 +49,7 @@ const ChainLine = styled.img`
     width: 800px;
     content: url(${chain_lines});
   }
+
 `;
 
 const BigCircle = styled.div`
@@ -145,7 +146,7 @@ const MainBgImg = ({ className }) => {
       </BigContext>
       <Padding />
     </BigCircle>
-    <ChainLine />
+    <ChainLine src={chain_lines} />
   </BackgroundImage>;
 }
 
@@ -191,7 +192,7 @@ const IndexPage = React.memo(({ pathContext: { locale } }) => {
         >
           <Resources />
         </Section>
-        <Section>
+        <Section id="harvest">
           <Harvest />
         </Section>
 

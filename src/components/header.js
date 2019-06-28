@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FormattedMessage } from 'react-intl';
-import { navigate } from '@reach/router';
+// import { navigate } from '@reach/router';
 import styled, { keyframes } from 'styled-components';
 import {
   HEADER_HEIGHT,
@@ -219,9 +219,10 @@ const Header = ({ showup }) => {
             </Link>
           ))}
           <MenuItem key="Language">
-            <FormattedMessage
+            {/* <FormattedMessage
               id="Language"
-            />
+            /> */}
+            Language
           </MenuItem>
         </ItemArea>
         <MenuImg

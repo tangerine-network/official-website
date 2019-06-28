@@ -26,7 +26,8 @@ export const MENU_ITEMS = [
     localeKey: 'Tech Support',
     link: '#resources'
   },
-  // {
-  //   localeKey: 'Media',
-  // },
+  {
+    localeKey: 'Harvest Program',
+    link: '#harvest',
+  },
 ];
