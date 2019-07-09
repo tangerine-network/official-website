@@ -147,6 +147,9 @@ const CloseIcon = styled.img`
 
 const MobileMenuItem = styled.div`
   margin: 20px 0px;
+  &:hover {
+    text-shadow: 0.5px 0.5px 0.5px gray;
+  }
 `;
 const LanguageItem = styled(MenuItem)`
   position: relative;
