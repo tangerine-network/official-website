@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { MOBILE_WIDTH } from 'src/constants/app';
 
 import lightHouse from 'src/images/light-house.svg';
+import Slide from 'react-reveal/Fade';
 
 const Wrapper = styled.div`
   /* border: 1px solid red; */
@@ -43,28 +44,30 @@ const Content = styled.div`
 const ExtLink = styled.div`
   color: #c45b26;
   font-weight: bold;
-  margin-top: 20px;;
+  margin-top: 20px;
   cursor: pointer;
 `;
 
 const Resources = () => (
-  <Wrapper>
-    <Card>
-      <LightHouseImage src={lightHouse} />
-      <Title>
-        <FormattedMessage
-          id="dapp-dev-guide"
-        />
-      </Title>
-      <Content>哈囉哈囉123, 你好哈哈哈</Content>
-      <ExtLink>
-        <FormattedMessage
-          id="Learn More"
-        />
-        >
-      </ExtLink>
-    </Card>
-  </Wrapper>
+  <Slide bottom>
+    <Wrapper>
+      <Card>
+        <LightHouseImage src={lightHouse} />
+        <Title>
+          <FormattedMessage
+            id="dapp-dev-guide"
+          />
+        </Title>
+        <Content>哈囉哈囉123, 你好哈哈哈</Content>
+        <ExtLink>
+          <FormattedMessage
+            id="Learn More"
+          />
+          >
+        </ExtLink>
+      </Card>
+    </Wrapper>
+  </Slide>
 );
 
 export default Resources;

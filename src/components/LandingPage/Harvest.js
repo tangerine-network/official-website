@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { MOBILE_WIDTH } from 'src/constants/app';
 import { FormattedMessage } from 'react-intl';
-
+import Slide from 'react-reveal/Fade';
 import HarvestProgramSvg from 'src/images/harvest-program.svg';
 
 const Wrapper = styled.div`
@@ -66,23 +66,25 @@ const Harvest = () => (
   <Wrapper>
     <HarvestLogo src={HarvestProgramSvg} />
     <ContextArea>
-      <Context>
-        <Title>
-          <FormattedMessage
-            id={"Harvest Program"}
-          />
-        </Title>
-        <Description>
-          <FormattedMessage
-            id={"harvest-description"}
-          />
-        </Description>
-        <Button>
-          <FormattedMessage
-            id={"Join Partner Program"}
-          />
-        </Button>
-      </Context>
+      <Slide bottom>
+        <Context>
+          <Title>
+            <FormattedMessage
+              id={"Harvest Program"}
+            />
+          </Title>
+          <Description>
+            <FormattedMessage
+              id={"harvest-description"}
+            />
+          </Description>
+          <Button>
+            <FormattedMessage
+              id={"Join Partner Program"}
+            />
+          </Button>
+        </Context>
+      </Slide>
     </ContextArea>
   </Wrapper>
 );

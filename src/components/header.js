@@ -32,21 +32,17 @@ const MenuImg = styled.img`
 
 const popup = keyframes`
   from {
-    /* top: -${HEADER_HEIGHT}px; */
     opacity: 0;
   }
   to {
-    /* top: 0; */
     opacity: 1;
   }
 `;
 const hide = keyframes`
   from {
-    /* top: 0px; */
     opacity: 1;
   }
   to {
-    /* top: -${HEADER_HEIGHT + 5}px; */
     opacity: 0;
   }
 `;
@@ -62,7 +58,7 @@ const Wrapper = styled.header`
     ? (p.control ? popup : hide)
     : ''
   } 0.2s ease-in; */
-  animation: ${p => p.control ? popup : hide} 0.1s linear;
+  animation: ${p => p.control ? popup : hide} 0.2s linear;
   min-height: ${p => p.height}px;
   height: ${HEADER_HEIGHT}px;
   display: flex;
@@ -90,6 +86,7 @@ const Padding = styled.div`
   flex: 1;
 `;
 const MenuItem = styled.div`
+  padding: 10px 0px;
   margin-left: 50px;
   text-align: center;
   cursor: pointer;
@@ -151,8 +148,26 @@ const CloseIcon = styled.img`
 const MobileMenuItem = styled.div`
   margin: 20px 0px;
 `;
+const LanguageItem = styled(MenuItem)`
+  position: relative;
+`;
+const Dropdown = styled.div`
+  min-width: 150px;
+  display: ${p => p.show ? 'visible' : 'none'};
+  opacity: ${p => p.show ? 1 : 0};
+  animation: ${p => p.show ? popup : hide} 0.3s linear;
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  padding: 10px;
+  text-align: right;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+`;
 
 const Header = ({ showup }) => {
+  const [langSelectOn, setLangSelect] = useState();
   const [enableAnimation, setEnableAnimation] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(null);
   useEffect(() => {
@@ -228,12 +243,28 @@ const Header = ({ showup }) => {
               </MenuItem>
             </Link>
           ))}
-          <MenuItem key="Language">
+          <LanguageItem
+            key="Language"
+            onMouseEnter={() => setLangSelect(true)}
+            onMouseLeave={() => setLangSelect(false)}
+          >
             {/* <FormattedMessage
               id="Language"
             /> */}
-            Language
-          </MenuItem>
+            Language ▾
+            <Dropdown show={langSelectOn}>
+              {Object.keys(Locales).map((it, key) => (it !== 'default') && (
+                <Link
+                  ignoreLocale
+                  title={Locales[it].locale}
+                  to={Locales[it].path}
+                  key={it}
+                >
+                  <MobileMenuItem>{Locales[it].locale}</MobileMenuItem>
+                </Link>
+              ))}
+            </Dropdown>
+          </LanguageItem>
         </ItemArea>
         <MenuImg
           onClick={() => {

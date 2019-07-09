@@ -8,6 +8,7 @@ import secureRandomnessSVG from 'src/images/tech-secure-randomness.svg';
 import {
   MOBILE_WIDTH,
 } from 'src/constants/app';
+import Slide from 'react-reveal/Fade';
 
 const items = [{
   img: fastSVG,
@@ -24,7 +25,7 @@ const items = [{
 }];
 
 const Wrapper = styled.div`
-  padding: 0px 100px 60px;
+  padding: 0px 100px 100px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     padding: 0px 50px 60px;
   }
@@ -35,9 +36,7 @@ const Item = styled.div`
   align-items: center;
   margin-top: 80px;
   @media screen and (min-width: ${MOBILE_WIDTH}px) {
-    &:nth-child(even) {
-      flex-direction: row-reverse;
-    }
+    ${p => p.reverse && 'flex-direction: row-reverse;'}
   }
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     flex-direction: column;
@@ -45,7 +44,7 @@ const Item = styled.div`
 `;
 const ImgWrapper = styled.div`
   flex: 1;
-  text-align: center;
+  text-align: ${p => p.reverse ? 'left' : 'right'};
 `;
 const Img = styled.img`
   height: 235px;
@@ -84,31 +83,41 @@ const Content = styled.div`
   }
 `;
 const Padding = styled.div`
-  width: 76px;
+  @media screen and (max-width: 1200px) {
+    width: 76px;
+  }
+  @media screen and (min-width: 1201px) {
+    width: 200px;
+  }
 `;
-const Footer = () => (
+const Tect = () => (
   <Wrapper>
-    {items.map((it, key) => (
-      <Item key={key}>
-        <ImgWrapper>
-          <Img src={it.img} alt={it.title} />
-        </ImgWrapper>
-        <Padding />
-        <Desc reverse={(key % 2) > 0}>
-          <Title>
-            <FormattedMessage
-              id={it.title}
-            />
-          </Title>
-          <Content reverse={(key % 2) > 0}>
-            <FormattedMessage
-              id={it.content}
-            />
-          </Content>
-        </Desc>
-      </Item>
-    ))}
+    {items.map((it, key) => {
+      const isReverse = (key % 2) > 0;
+      return (
+        <Slide key={key} bottom>
+          <Item key={key} reverse={isReverse}>
+            <ImgWrapper reverse={isReverse} >
+              <Img src={it.img} alt={it.title} />
+            </ImgWrapper>
+            <Padding />
+            <Desc reverse={isReverse}>
+              <Title>
+                <FormattedMessage
+                  id={it.title}
+                />
+              </Title>
+              <Content reverse={isReverse}>
+                <FormattedMessage
+                  id={it.content}
+                />
+              </Content>
+            </Desc>
+          </Item>
+        </Slide>
+      );
+    })}
   </Wrapper>
 );
 
-export default Footer;
+export default Tect;
