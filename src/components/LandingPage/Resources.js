@@ -58,12 +58,11 @@ const Resources = () => (
             id="dapp-dev-guide"
           />
         </Title>
-        <Content>哈囉哈囉123, 你好哈哈哈</Content>
-        <ExtLink>
+        <Content>Build your Dapps on Tangerine Network</Content>
+        <ExtLink onClick={() => window.open('https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide')}>
           <FormattedMessage
             id="Learn More"
           />
-          >
         </ExtLink>
       </Card>
     </Wrapper>

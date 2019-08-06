@@ -130,7 +130,7 @@ const MobileMenu = styled.div`
   height: 100vh;
   z-index: ${p => p.show ? 1001 : -1};;
   background-color: white;
-  padding: 20px;
+  padding: 10px 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

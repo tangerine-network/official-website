@@ -11,7 +11,7 @@ import {
   MAIN_AREA_MOBILE_HEIGHT,
   MOBILE_WIDTH,
 } from 'src/constants/app';
-import PartnerList from 'src/components/LandingPage/PartnerList';
+// import PartnerList from 'src/components/LandingPage/PartnerList';
 import Tech from 'src/components/LandingPage/Tech';
 import Resources from 'src/components/LandingPage/Resources';
 import Harvest from 'src/components/LandingPage/Harvest';
@@ -169,7 +169,7 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
     <Layout locale={locale}>
       <MainArea />
       <Sections>
-        <Section><PartnerList /></Section>
+        {/* <Section><PartnerList /></Section> */}
         <Section
           id="technology"
           title={

@@ -78,7 +78,9 @@ const Harvest = () => (
               id={"harvest-description"}
             />
           </Description>
-          <Button>
+          <Button
+            onClick={() => window.open('mailto:tangerine-ops@byzantine-lab.io', '_blank')}
+          >
             <FormattedMessage
               id={"Join Partner Program"}
             />

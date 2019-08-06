@@ -3,7 +3,7 @@ module.exports = {
     title: `Tangerine Network`,
     description: `Tangerine Network is a distributed ledger technology designed to solve the problems inherent in other blockchain systems.`,
     author: `Tangerine Network`,
-    siteUrl: `https://www.example.com`,
+    siteUrl: `https://tangerine-network.io`,
   },
   plugins: [
     `gatsby-plugin-sitemap`,
