@@ -74,7 +74,7 @@ const InjectedSEO = injectIntl(({ intl }) => {
       <link rel="alternate" hreflang="en" href={`${site.siteMetadata.siteUrl}/en`} />
       <link rel="alternate" hreflang="zh-Hant" href={`${site.siteMetadata.siteUrl}/zh-Hant`} />
 
-      <meta property="tangerine:image" content={site.siteMetadata.siteUrl} />
+      <meta property="tangerine:image" content={site_logo} />
 
       <meta name="description" content={intl.formatMessage({ id: 'tangerine-description' })} />
       <meta itemprop="type" content="website" />
