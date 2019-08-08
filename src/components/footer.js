@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { MOBILE_WIDTH } from 'src/constants/app';
 const Wrapper = styled.footer`
-  padding: 75px 20px 30px;
+  padding: 123px 20px 30px;
   color: white;
   text-align: center;
   background-color: #282625;

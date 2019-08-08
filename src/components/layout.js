@@ -19,12 +19,6 @@ import messages_en from "../translations/en.json";
 import site_logo from 'src/images/site_logo.png';
 import Header from "./header"
 import Footer from './footer';
-import {
-  GET_WIDTH,
-  MOBILE_WIDTH,
-  MAIN_AREA_DESKTOP_HEIGHT,
-  MAIN_AREA_MOBILE_HEIGHT,
-} from 'src/constants/app';
 
 addLocaleData([...en, ...zh]);
 
@@ -111,14 +105,10 @@ const Layout = ({ children, locale }) => {
 
   const scrollHandler = useCallback(throttle(() => {
     const scrollTop = wrapperRef.current.scrollTop;
-    const TOP_AREA = (GET_WIDTH() > MOBILE_WIDTH)
-      ? MAIN_AREA_DESKTOP_HEIGHT
-      : MAIN_AREA_MOBILE_HEIGHT;
-
-    if ((scrollTop <= TOP_AREA) && !showHeader) {
+    if ((scrollTop <= 100) && !showHeader) {
       setShowheader(true);
     } else if (showHeader &&
-      scrollTop > (TOP_AREA) &&
+      scrollTop > (100) &&
       previousScrollPosition < scrollTop
     ) {
         setShowheader(false);

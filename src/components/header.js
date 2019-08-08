@@ -52,14 +52,8 @@ const Wrapper = styled.header`
   width: 100vw;
   max-width: 100vw;
   z-index: 100;
-  /* top: ${p => p.control ? 0 : -HEADER_HEIGHT}px; */
-  opacity: ${p => p.control ? 1 : 0};
-  /* animation: ${p => p.enableAnimation
-    ? (p.control ? popup : hide)
-    : ''
-  } 0.2s ease-in; */
-  animation: ${p => p.control ? popup : hide} 0.2s linear;
-  min-height: ${p => p.height}px;
+  top: ${p => p.control ? 0 : -HEADER_HEIGHT}px;
+  transition: 0.2s top ease-in;
   height: ${HEADER_HEIGHT}px;
   display: flex;
   align-items: center;
@@ -251,9 +245,6 @@ const Header = ({ showup }) => {
             onMouseEnter={() => setLangSelect(true)}
             onMouseLeave={() => setLangSelect(false)}
           >
-            {/* <FormattedMessage
-              id="Language"
-            /> */}
             Language ▾
             <Dropdown show={langSelectOn}>
               {Object.keys(Locales).map((it, key) => (it !== 'default') && (
