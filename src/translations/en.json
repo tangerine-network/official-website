@@ -13,7 +13,7 @@
   "tech-fair-description": "Our cutting-edge fair consensus algorithm makes Tangerine network achieve much stabler than other blockchains.",
   "tech-secure-randomness": "Applications which need randomness such as gaming and sortition complete their functionality securely.",
   "technical-resources": "Technical Resources",
-  "dapp-dev-guide": "DApp Development Guide",
+  "dev-guide": "Developer",
   "Harvest Program": "Harvest Program",
   "harvest-description": "Be part of the Tangerine Network ecosystem and earn up to 6 million TAN.",
   "Join Partner Program": "Join Partner Program",
@@ -23,5 +23,13 @@
   "download-chrome-extension":  "Download Chrome Extension",
   "download-firefox-extension": "Download Firefox Extension",
   "tangerine-explorer": "Tangerine Explorer",
-  "tangerine-explorer-description": "Empowering Your Mining Experience"
+  "tangerine-explorer-description": "Empowering Your Mining Experience",
+  "build_your_dapps": "Build your Dapps on Tangerine Network",
+  "Resource_Wiki": "Wiki",
+  "Manifesto": "Manifesto",
+  "Consensus_Algorithm": "Consensus Algorithm",
+  "Paper": "Paper",
+  "read_the_paper": "Read the paper",
+  "Faucet": "Faucet",
+  "get_mainnet_token": "Get Mainnet Token"
 }

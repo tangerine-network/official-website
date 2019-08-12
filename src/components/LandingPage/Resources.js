@@ -2,32 +2,28 @@ import React from "react";
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { MOBILE_WIDTH } from 'src/constants/app';
-
-import lightHouse from 'src/images/light-house.svg';
 import Slide from 'react-reveal/Fade';
 
 const Wrapper = styled.div`
-  /* border: 1px solid red; */
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 0px 0px 60px;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    flex-direction: column;
+  }
 `;
 
-const LightHouseImage = styled.img`
-  width: 75px;
-`;
 const Card = styled.div`
-  border-radius: 5px;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  width: 100%;
-  padding: 30px 60px;
-  @media screen and (min-width: ${MOBILE_WIDTH}px) {
-    max-width: 784px;
-  }
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #DDD;
+  flex: 1;
+  height: 300px;
+  padding: 30px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    width: 90%;
     padding: 20px;
+    width: 90%;
+    height: 200px;
   }
 `;
 
@@ -35,36 +31,68 @@ const Title = styled.div`
   color: #c45b26;
   font-size: larger;
   font-weight: bold;
-  margin: 20px 0px;
 `;
 const Content = styled.div`
   color: #282625;
   font-size: normal;
 `;
 const ExtLink = styled.div`
-  color: #c45b26;
-  font-weight: bold;
-  margin-top: 20px;
   cursor: pointer;
+  display: flex;
+  margin-top: 10px;
 `;
+const Padding = styled.div`
+  flex: 1;
+`;
+
+
+const ResourceItems = [{
+  title: 'Faucet',
+  content: 'read_the_paper',
+  links: [{
+    title: 'get_mainnet_token',
+    link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
+  }]
+}, {
+  title: 'Paper',
+  content: 'read_the_paper',
+  links: [{
+    title: 'Manifesto',
+    link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
+  }, {
+    title: 'Consensus_Algorithm',
+    link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
+  }]
+}, {
+  title: 'dev-guide',
+  content: 'build_your_dapps',
+  links: [{
+    title: 'Resource_Wiki',
+    link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
+  }]
+}]
 
 const Resources = () => (
   <Slide bottom>
     <Wrapper>
-      <Card>
-        <LightHouseImage src={lightHouse} />
-        <Title>
-          <FormattedMessage
-            id="dapp-dev-guide"
-          />
-        </Title>
-        <Content>Build your Dapps on Tangerine Network</Content>
-        <ExtLink onClick={() => window.open('https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide')}>
-          <FormattedMessage
-            id="Learn More"
-          />
-        </ExtLink>
-      </Card>
+      <Padding />
+      {(ResourceItems).map((resource, key) => (
+        <Card key={key}>
+          <Title>
+            <FormattedMessage id={resource.title} />
+          </Title>
+          <Content><FormattedMessage id={resource.content} /></Content>
+          <Padding />
+          {(resource.links || []).map((link, key) => (
+            <ExtLink onClick={() => window.open(link.link)} key={key}>
+              <FormattedMessage id={link.title} />
+              <Padding />
+              >
+            </ExtLink>
+          ))}
+        </Card>
+      ))}
+      <Padding />
     </Wrapper>
   </Slide>
 );
