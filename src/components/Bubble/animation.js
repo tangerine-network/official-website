@@ -13,13 +13,14 @@ export const startLoop = () => {
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   bubbleList.forEach((bubble) => {
-    const { size, points, radius, color } = bubble;
+    const { size, points, radius, color, animation } = bubble;
     ctx.strokeStyle = color;
     ctx.lineWidth = 1;
     const length = (canvas.width / 2) * size;
     const root = [canvas.width / 2, canvas.width / 2];
-    const normalized = points.map((point) => {
-      const [x, y, portion, animation] = point;
+    let animationShift = false;
+    const normalized = points.map((point, index) => {
+      const [x, y, portion] = point;
       const vec = [
         root[0] + (length * x),
         root[1] + (length * y),
@@ -31,28 +32,56 @@ export const startLoop = () => {
 
       let diff = 1;
       if (animation) {
-        const { upper, lower, speed, expand} = animation;
-        if (animation.current === undefined) {
-          animation.current = 1;
+        let animationObj;
+        const { startIndex } = animation;
+        if (index === startIndex) {
+          animationObj = animation.movement1;
+        } else if (index === ((startIndex + 4) % points.length)) {
+          animationObj = animation.movement2;
+        } else if (index === ((startIndex + 2) % points.length)) {
+          animationObj = animation.movement3;
+        } else if (index === ((startIndex + 6) % points.length)) {
+          animationObj = animation.movement4;
         }
-        const upperBound = 1 + upper;
-        const lowerBound = 1 - lower;
-        animation.current += ((expand ? 1 : -1) * speed);
-        if (animation.current > upperBound) {
-          animation.current = upperBound;
-          animation.expand = false;
-        } else if (animation.current < lowerBound) {
-          animation.expand = true;
-          animation.current = lowerBound;
+        if (animationObj) {
+          const { upper, lower, speed, expand} = animationObj;
+          if (animationObj.current === undefined) {
+            animationObj.current = 1;
+          }
+          const upperBound = 1 + upper;
+          const lowerBound = 1 - lower;
+          animationObj.current += ((expand ? 1 : -1) * speed);
+          if (animationObj.current > upperBound) {
+            animationObj.hitUpper = true;
+            animationObj.current = upperBound;
+            animationObj.expand = false;
+          } else if (animationObj.current < lowerBound) {
+            animationObj.hitLower = true;
+            animationObj.expand = true;
+            animationObj.current = lowerBound;
+          }
+          if (
+            animationObj.hitLower &&
+            animationObj.hitUpper &&
+            (animationObj.current < (1 + speed) &&
+            (animationObj.current > (1 - speed)))
+            // We've done a full cycle
+          ) {
+            animationObj.hitLower = false;
+            animationObj.hitUpper = false;
+            animationShift = true;
+          }
+          diff = animationObj.current;
         }
-        diff = animation.current;
       }
-
       return [
         root[0] + (length * x * lengthAdjust * portion * diff),
         root[1] + (length * y * lengthAdjust * portion * diff),
       ];
     });
+    if (animationShift) {
+      animation.startIndex = (animation.startIndex + 1) % points.length;
+    }
     drawBubble(ctx, normalized, radius, color);
     ctx.stroke();
     // normalized.forEach((pos) => {

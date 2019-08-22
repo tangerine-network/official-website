@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 const Canvas = styled.canvas`
   width: 100%;
   height: auto;
-  border: 1px solid #EEE;
+  /* border: 1px solid #EEE; */
 `;
 
 const AnimatedBubble = ({ size }) => {
@@ -28,7 +28,14 @@ const AnimatedBubble = ({ size }) => {
       addBubble({
         color: 'rgba(255, 255, 255, 0.3)',
         radius: 250,
-        size: 0.9,
+        size: 0.87,
+        animation: {
+          startIndex: 4,
+          movement1: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: true },
+          movement2: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: true },
+          movement3: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: false },
+          movement4: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: false },
+        },
         points: [
           [0, 1, 1.05],
           [1, 1, 1.1],
@@ -44,6 +51,13 @@ const AnimatedBubble = ({ size }) => {
         color: 'rgb(255, 255, 255, 0.5)',
         radius: 220,
         size: 0.85,
+        animation: {
+          startIndex: 1,
+          movement1: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: true },
+          movement2: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: true },
+          movement3: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: false },
+          movement4: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: false },
+        },
         points: [
           [0, 1, 1.05],
           [1, 1, 1.1],
@@ -59,14 +73,21 @@ const AnimatedBubble = ({ size }) => {
         color: 'white',
         radius: 200,
         size: 0.8,
+        animation: {
+          startIndex: 2,
+          movement1: { upper: 0.1, lower: 0.05, speed: 0.0005, expand: true },
+          movement2: { upper: 0.05, lower: 0.1, speed: 0.0005, expand: true },
+          movement3: { upper: 0.1, lower: 0.05, speed: 0.0005, expand: false },
+          movement4: { upper: 0.05, lower: 0.1, speed: 0.0005, expand: false },
+        },
         points: [
-          [0, 1, 1, { upper: 0, lower: 0.2, speed: 0.0005, expand: false }],
-          [1, 1, 1, { upper: 0, lower: 0.2, speed: 0.0005, expand: false }],
-          [1, 0, 1.1, { upper: 0.05, lower: 0.1, speed: 0.0002, expand: true }],
-          [1, -1, 1.2, { upper: 0.05, lower: 0, speed: 0.0002, expand: true }],
+          [0, 1, 1],
+          [1, 1, 1],
+          [1, 0, 1.1],
+          [1, -1, 1.15],
           [0, -1, 1],
-          [-1, -1, 1, { upper: 0.05, lower: 0.02, speed: 0.0002, expand: true }],
-          [-1, 0, 1, ],
+          [-1, -1, 1],
+          [-1, 0, 1],
           [-1, 1, 1],
         ]
       });

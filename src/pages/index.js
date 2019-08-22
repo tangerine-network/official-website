@@ -57,7 +57,7 @@ const Landing = styled.div`
   justify-content: center;
 `;
 const TitleSection = styled.div`
-  border: 1px solid #EEE;
+  /* border: 1px solid #EEE; */
   width: 100%;
   max-width: 900px;
   padding: 0px 40px;
