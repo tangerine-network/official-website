@@ -19,7 +19,9 @@ const LocaleLink = ({ children, ignoreLocale, to, intl: { locale }, ...props }) 
             const target = document.getElementById(`${to.replace('#', '')}`);
             if (target) {
               target.scrollIntoView({
-                behavior: 'smooth'
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center',
               });
             }
           }, 0);

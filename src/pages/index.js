@@ -11,87 +11,13 @@ import {
   MAIN_AREA_MOBILE_HEIGHT,
   MOBILE_WIDTH,
 } from 'src/constants/app';
+import Bubble from 'src/components/Bubble';
 import PartnerList from 'src/components/LandingPage/PartnerList';
 import Contact from 'src/components/LandingPage/Contact';
 import Tech from 'src/components/LandingPage/Tech';
 import Wallet from 'src/components/LandingPage/Wallet';
 import Explorer from 'src/components/LandingPage/Explorer';
 import Resources from 'src/components/LandingPage/Resources';
-import Harvest from 'src/components/LandingPage/Harvest';
-// import chain_lines from 'src/images/main-chainlines-2.svg';
-// import chain_lines_blur from 'src/images/main-chainlines-3.svg';
-// const CIRCLE_SHADOW = '0 0 10px 2px rgba(255, 255, 0, 0.5)';
-
-// const rotate = keyframes`
-//   0% {
-//     -webkit-transform: scale(1, 0.8) skew(0deg, 0deg);
-//     transform: scale(1, 0.8) skew(0deg, 0deg);
-//   }
-//   50% {
-//     -webkit-transform: scale(1, 1.1) skew(-10deg, 0deg);
-//     transform: scale(1, 1.1) skew(-10deg, 0deg);
-//   }
-//   100% {
-//     -webkit-transform: scale(1, 0.8) skew(0deg, 0deg);
-//     transform: scale(1, 0.8) skew(0deg, 0deg);
-//   }
-// `;
-
-// const ChainLine = styled.img`
-//   content: url(${chain_lines_blur});
-//   position: absolute;
-//   width: 110%;
-//   top: 50px;
-//   animation: ${rotate} 6s ease-in-out infinite;
-//   @media screen and (max-width: 1300px) {
-//     width: 120%;
-//     top: 180px;
-//   }
-//   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-//     top: 120px;
-//     width: 800px;
-//     content: url(${chain_lines});
-//   }
-
-// `;
-
-// const BigCircle = styled.div`
-//   z-index: 500;
-//   position: relative;
-//   width: 400px;
-//   height: 400px;
-//   border-radius: 100%;
-//   border: 3px solid rgba(255, 255, 255, 0.9);
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   box-shadow:  inset ${CIRCLE_SHADOW}, ${CIRCLE_SHADOW};
-//   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-//     width: 273px;
-//     height: 273px;
-//   }
-// `;
-// const Padding = styled.div`
-//   flex: 1;
-// `;
-// const BigTitle = styled.h1`
-//   white-space: nowrap;
-//   text-align: center;
-//   color: white;
-//   font-size: 50px;
-//   font-weight: bold;
-//   margin: 10px;
-//   text-shadow: 0 0 10px rgba(100, 100, 0, 0.3);
-//   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-//     font-size: 33px;
-//   }
-// `;
-// const BigContext = styled.h2`
-//   color: white;
-//   text-align: center;
-//   padding: 10px;
-//   font-size: 16px;
-// `;
 
 const Sections = styled.div`
 `;
@@ -118,73 +44,77 @@ const Section = ({ children, title, id }) => (
   </SectionWrapper>
 );
 
-// const MainBgImg = ({ className }) => {
-//   const data = useStaticQuery(graphql`
-//     query {
-//       placeholderImage: file(relativePath: { eq: "main_background.png" }) {
-//         childImageSharp {
-//           fluid(maxWidth: 3000) {
-//             ...GatsbyImageSharpFluid
-//           }
-//         }
-//       }
-//     }
-//   `)
-//   return <BackgroundImage
-//     Tag="section"
-//     className={className}
-//     fluid={data.placeholderImage.childImageSharp.fluid}
-//   >
-//     <BigCircle>
-//       <Padding />
-//       <BigTitle>
-//         <FormattedMessage
-//           id="Tangerine Network"
-//           defaultMessage="Tangerine Network"
-//         />
-//       </BigTitle>
-//       <BigContext>
-//         <FormattedMessage
-//           id="tangerine-description"
-//         />
-//       </BigContext>
-//       <Padding />
-//     </BigCircle>
-//     <ChainLine src={chain_lines} />
-//   </BackgroundImage>;
-// }
-
-// const MainArea = styled(MainBgImg)`
-//   position: relative;
-//   width: 100%;
-//   height: ${MAIN_AREA_DESKTOP_HEIGHT}px;
-//   overflow: hidden;
-//   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-//     height: ${MAIN_AREA_MOBILE_HEIGHT}px;
-//   }
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
-
 const Landing = styled.div`
-    position: relative;
-    width: 100%;
-    height: ${MAIN_AREA_DESKTOP_HEIGHT}px;
-    overflow: hidden;
-    @media screen and (max-width: ${MOBILE_WIDTH}px) {
-      height: ${MAIN_AREA_MOBILE_HEIGHT}px;
-    }
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 100%;
+  height: ${MAIN_AREA_DESKTOP_HEIGHT}px;
+  overflow: hidden;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    height: ${MAIN_AREA_MOBILE_HEIGHT}px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+const TitleSection = styled.div`
+  border: 1px solid #EEE;
+  width: 100%;
+  max-width: 900px;
+  padding: 0px 40px;
+  z-index: 10;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    padding: 0px 20px;
+  }
+`;
+const Title = styled.div`
+  font-weight: bolder;
+  font-size: 70px;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    font-size: 50px;
+  }
+`;
+const SubTitle = styled.div`
+  font-size: 25px;
+  margin-top: 20px;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    margin-top: 10px;
+    font-size: 17px;
+  }
+`;
+const HightLight = styled.span`
+  color: #e05b21;
+`;
+
+const CircleBackground = styled.div`
+  border-radius: 100%;
+  height: 700px;
+  width: 700px;
+  position: absolute;
+  background: radial-gradient(closest-side, rgba(224, 91, 33, 1) 50%, rgba(224, 91, 33, 0) 95%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    height: 400px;
+    width: 400px;
+  }
+`;
+
 
 const IndexPage = ({ pageContext: { locale }, intl }) => {
   return (
     <Layout locale={locale}>
       <Sections>
-        <Landing />
+        <Landing>
+          <CircleBackground>
+            <Bubble />
+          </CircleBackground>
+          <TitleSection>
+            <Title>BUILD <HightLight>TRUST</HightLight></Title>
+            <Title>GO VIRAL</Title>
+            <SubTitle>Ignite your idea with Tangerine Network</SubTitle>
+          </TitleSection>
+        </Landing>
         <Section><PartnerList /></Section>
         <Section><Contact /></Section>
         <Section
@@ -210,9 +140,9 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
         >
           <Resources />
         </Section>
-        <Section id="harvest">
+        {/* <Section id="harvest">
           <Harvest />
-        </Section>
+        </Section> */}
         <Section><Contact /></Section>
       </Sections>
       {/* <Link to="/page-2/">Go to page 2</Link> */}

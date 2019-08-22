@@ -60,7 +60,7 @@ const Wrapper = styled.header`
   background-color: white;
   color: black;
   padding: 0px 60px;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+  /* border-bottom: 0.5px solid rgba(0, 0, 0, 0.2); */
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     height: ${MOBILE_HEADER_HEIGHT}px;
     padding: 0px 20px;
