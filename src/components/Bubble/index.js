@@ -57,16 +57,16 @@ const AnimatedBubble = ({ size }) => {
       });
       addBubble({
         color: 'white',
-        radius: 240,
+        radius: 200,
         size: 0.8,
         points: [
-          [0, 1, 1],
-          [1, 1, 1],
-          [1, 0, 1.1],
-          [1, -1, 1.2],
+          [0, 1, 1, { upper: 0, lower: 0.2, speed: 0.0005, expand: false }],
+          [1, 1, 1, { upper: 0, lower: 0.2, speed: 0.0005, expand: false }],
+          [1, 0, 1.1, { upper: 0.05, lower: 0.1, speed: 0.0002, expand: true }],
+          [1, -1, 1.2, { upper: 0.05, lower: 0, speed: 0.0002, expand: true }],
           [0, -1, 1],
-          [-1, -1, 1],
-          [-1, 0, 1],
+          [-1, -1, 1, { upper: 0.05, lower: 0.02, speed: 0.0002, expand: true }],
+          [-1, 0, 1, ],
           [-1, 1, 1],
         ]
       });
