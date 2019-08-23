@@ -6,6 +6,14 @@ export const addBubble = bubble => bubbleList.push(bubble);
 
 let canvas;
 export const setCanvas = ref => (canvas = ref);
+
+let animationFrameId;
+const cancelFrame = () => {
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
+  }
+}
+
 export const startLoop = () => {
   if (!canvas) {
     return;
@@ -63,13 +71,14 @@ export const startLoop = () => {
           if (
             animationObj.hitLower &&
             animationObj.hitUpper &&
-            (animationObj.current < (1 + speed) &&
-            (animationObj.current > (1 - speed)))
+            (animationObj.current <= (1 + speed) &&
+            (animationObj.current >= (1 - speed)))
             // We've done a full cycle
           ) {
             animationObj.hitLower = false;
             animationObj.hitUpper = false;
             animationShift = true;
+            animationObj.current = 1;
           }
           diff = animationObj.current;
         }
@@ -90,5 +99,6 @@ export const startLoop = () => {
     //   ctx.stroke();
     // });
   });
-  requestAnimationFrame(startLoop);
+  animationFrameId = requestAnimationFrame(startLoop);
+  return cancelFrame;
 }

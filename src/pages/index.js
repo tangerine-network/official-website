@@ -1,6 +1,6 @@
 import React from "react";
 // import { graphql, useStaticQuery } from 'gatsby';
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 // import Link from 'src/components/Link';
 import { FormattedMessage } from 'react-intl';
 import Layout from "../components/layout";
@@ -33,7 +33,6 @@ const SectionTitle = styled.div`
   text-align: center;
   font-weight: bold;
   font-size: 30px;
-  /* border: 1px solid red; */
   padding: 60px 0px;
   color: #282625;
 `;
@@ -85,18 +84,45 @@ const HightLight = styled.span`
   color: #e05b21;
 `;
 
+const movementEffect = keyframes`
+  0% {
+    height: 680px;
+    width: 680px;
+  }
+  50% {
+    height: 730px;
+    width: 730px;
+  }
+  100% {
+    height: 680px;
+    width: 680px;
+  }
+`
+
+const movementEffectMobile = keyframes`
+  0% {
+    height: 390px;
+    width: 390px;
+  }
+  50% {
+    height: 410px;
+    width: 410px;
+  }
+  100% {
+    height: 390px;
+    width: 390px;
+  }
+`
+
 const CircleBackground = styled.div`
-  border-radius: 100%;
-  height: 700px;
-  width: 700px;
   position: absolute;
-  background: radial-gradient(closest-side, rgba(224, 91, 33, 1) 50%, rgba(224, 91, 33, 0) 95%);
+  background: radial-gradient(closest-side, rgba(224, 91, 33, 1) 40%, transparent 95%);
+  animation: ${movementEffect} 5s ease-in-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    height: 400px;
-    width: 400px;
+    animation: ${movementEffectMobile} 5s ease-in-out infinite;
   }
 `;
 
@@ -106,9 +132,8 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
     <Layout locale={locale}>
       <Sections>
         <Landing>
-          <CircleBackground>
-            <Bubble />
-          </CircleBackground>
+          <Bubble />
+          <CircleBackground />
           <TitleSection>
             <Title>BUILD <HightLight>TRUST</HightLight></Title>
             <Title>GO VIRAL</Title>

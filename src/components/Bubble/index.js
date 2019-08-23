@@ -6,6 +6,8 @@ import {
 import { addBubble, startLoop, setCanvas } from './animation';
 
 const Wrapper = styled.div`
+  position: absolute;
+  z-index: 10;
   height: 700px;
   width: 700px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
@@ -31,10 +33,10 @@ const AnimatedBubble = ({ size }) => {
         size: 0.87,
         animation: {
           startIndex: 4,
-          movement1: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: true },
-          movement2: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: true },
-          movement3: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: false },
-          movement4: { upper: 0.05, lower: 0.05, speed: 0.0005, expand: false },
+          movement1: { upper: 0.08, lower: 0.02, speed: 0.0005, expand: true },
+          movement2: { upper: 0.08, lower: 0.02, speed: 0.0005, expand: true },
+          movement3: { upper: 0.08, lower: 0.02, speed: 0.0005, expand: false },
+          movement4: { upper: 0.08, lower: 0.02, speed: 0.0005, expand: false },
         },
         points: [
           [0, 1, 1.05],
@@ -75,10 +77,10 @@ const AnimatedBubble = ({ size }) => {
         size: 0.8,
         animation: {
           startIndex: 2,
-          movement1: { upper: 0.1, lower: 0.05, speed: 0.0005, expand: true },
-          movement2: { upper: 0.05, lower: 0.1, speed: 0.0005, expand: true },
-          movement3: { upper: 0.1, lower: 0.05, speed: 0.0005, expand: false },
-          movement4: { upper: 0.05, lower: 0.1, speed: 0.0005, expand: false },
+          movement1: { upper: 0.15, lower: 0.075, speed: 0.001, expand: true },
+          movement2: { upper: 0.1, lower: 0.125, speed: 0.001, expand: true },
+          movement3: { upper: 0.15, lower: 0.075, speed: 0.001, expand: false },
+          movement4: { upper: 0.075, lower: 0.15, speed: 0.001, expand: false },
         },
         points: [
           [0, 1, 1],
@@ -92,15 +94,15 @@ const AnimatedBubble = ({ size }) => {
         ]
       });
       setCanvas(wrapperRef.current);
-      startLoop();
+      return startLoop();
     }
-  }, [wrapperRef.current]);
+  }, []);
 
   return (
     <Canvas
       ref={wrapperRef}
-      width={size * 2}
-      height={size * 2}
+      width={1400}
+      height={1400}
     />
   );
 }
