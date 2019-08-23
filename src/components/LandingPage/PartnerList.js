@@ -54,6 +54,7 @@ const PartnerLogo = styled.div`
 const COMMENT_HEIGHT = 280;
 
 const Comment = styled.div`
+  padding: 36px 0px;
   position: absolute;
   color: #e05b21;
   width: 80vw;
@@ -104,9 +105,9 @@ const PartnerInfo = {
 
 const PartnerComment = styled.div`
   font-size: 24px;
-  margin-top: 80px;
   font-weight: bold;
   text-align: center;
+  padding: 20px 0px;
 `;
 const CommentLogo = styled.div`
   flex: 1;
@@ -115,7 +116,7 @@ const CommentLogo = styled.div`
   fill: #e05b21;
 `;
 const Commenter = styled.div`
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 `
 
 const PartnerList = () => {
