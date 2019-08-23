@@ -30,7 +30,7 @@ const AnimatedBubble = ({ size }) => {
       addBubble({
         color: 'rgba(255, 255, 255, 0.3)',
         radius: 250,
-        size: 0.87,
+        size: 0.9,
         animation: {
           startIndex: 4,
           movement1: { upper: 0.08, lower: 0.02, speed: 0.0005, expand: true },
@@ -39,14 +39,14 @@ const AnimatedBubble = ({ size }) => {
           movement4: { upper: 0.08, lower: 0.02, speed: 0.0005, expand: false },
         },
         points: [
-          [0, 1, 1.05],
-          [1, 1, 1.1],
+          [0, 1, 1],
+          [1, 1, 1],
           [1, 0, 1],
           [1, -1, 1],
           [0, -1, 1],
-          [-1, -1, 0.95],
+          [-1, -1,1],
           [-1, 0, 1],
-          [-1, 1, 1.1],
+          [-1, 1, 1],
         ]
       });
       addBubble({

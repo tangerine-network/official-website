@@ -41,6 +41,7 @@ const Item = styled.div`
   cursor: pointer;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     flex: 1 0 34%;
+    margin: 0px;
   }
 `;
 
@@ -48,7 +49,14 @@ const PartnerLogo = styled.div`
   height: 100px;
   display: flex;
   align-items: center;
+  justify-content: center;
   fill: #585858;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    height: auto;
+    /* width: 48%; */
+    border: 1px solid red;
+    /* border: 1px solid red; */
+  }
 `;
 
 const COMMENT_HEIGHT = 280;
@@ -133,14 +141,14 @@ const PartnerList = () => {
             <PartnerLogo>{PartnerInfo[it].logo}</PartnerLogo>
           </Item>)
         )}
-        {Object.keys(PartnerInfo).map(
+        {/* {Object.keys(PartnerInfo).map(
           (it, key) => (<Item
             key={key}
             onClick={() => setSelectedPartner(PartnerInfo[it])}
           >
             <PartnerLogo>{PartnerInfo[it].logo}</PartnerLogo>
           </Item>)
-        )}
+        )} */}
       </GridLayout>
       <CommentPadding>
         <Comment>
