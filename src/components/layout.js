@@ -69,7 +69,7 @@ const InjectedSEO = injectIntl(({ intl }) => {
       <link rel="alternate" hreflang="zh-Hant" href={`${site.siteMetadata.siteUrl}/zh-Hant`} />
 
       <meta property="tangerine:image" content={site_logo} />
-
+      <meta name="google-site-verification" content="v2itVXrzyROVzjVLUgDj6dhY5OuEvp8ez3EhUecuTR4" />
       <meta name="description" content={intl.formatMessage({ id: 'tangerine-description' })} />
       <meta itemprop="type" content="website" />
       <meta itemprop="image" content={site_logo} />
