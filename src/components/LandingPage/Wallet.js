@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   padding: 100px 0px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     flex-direction: column;
-    padding: 0px;
+    padding: 80px 0px;
   }
 `;
 

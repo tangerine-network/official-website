@@ -7,8 +7,9 @@ import Layout from "../components/layout";
 // import SEO from "../components/seo";
 // import BackgroundImage from 'gatsby-background-image';
 import {
+  HEADER_HEIGHT,
   MAIN_AREA_DESKTOP_HEIGHT,
-  MAIN_AREA_MOBILE_HEIGHT,
+  MOBILE_HEADER_HEIGHT,
   MOBILE_WIDTH,
 } from 'src/constants/app';
 import Bubble from 'src/components/Bubble';
@@ -23,7 +24,7 @@ const Sections = styled.div`
 `;
 const SectionWrapper = styled.div`
   &:nth-child(even) {
-    background-color: #F8F8F8;
+    background-color: #FBFBFB;
   }
   &:nth-child(odd) {
     background-color: white;
@@ -46,10 +47,11 @@ const Section = ({ children, title, id }) => (
 const Landing = styled.div`
   position: relative;
   width: 100%;
-  height: ${MAIN_AREA_DESKTOP_HEIGHT}px;
+  /* height: ${MAIN_AREA_DESKTOP_HEIGHT}px; */
+  height: calc(100vh - ${HEADER_HEIGHT}px);
   overflow: hidden;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    height: ${MAIN_AREA_MOBILE_HEIGHT}px;
+    height: calc(100vh - ${MOBILE_HEADER_HEIGHT}px);
   }
   display: flex;
   align-items: center;
@@ -61,15 +63,19 @@ const TitleSection = styled.div`
   max-width: 900px;
   padding: 0px 40px;
   z-index: 10;
+  font-family: Montserrat;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     padding: 0px 20px;
   }
 `;
 const Title = styled.div`
+  /* border: 1px solid red; */
   font-weight: bolder;
   font-size: 70px;
+  line-height: 70px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    font-size: 50px;
+    font-size: 35px;
+    line-height: 35px;
   }
 `;
 const SubTitle = styled.div`
@@ -116,8 +122,9 @@ const movementEffectMobile = keyframes`
 
 const CircleBackground = styled.div`
   position: absolute;
-  background: radial-gradient(closest-side, rgba(224, 91, 33, 1) 40%, transparent 95%);
-  animation: ${movementEffect} 5s ease-in-out infinite;
+  background: radial-gradient(white 45%, rgba(224, 91, 33, 0.5) 50%, white 65%);
+  /* background: -webkit-radial-gradient(closest-side, rgba(224, 91, 33, 1) 40%, transparent 95%); */
+  animation: ${movementEffect} 8s ease-in-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,13 +142,13 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
           <Bubble />
           <CircleBackground />
           <TitleSection>
-            <Title>BUILD <HightLight>TRUST</HightLight></Title>
-            <Title>GO VIRAL</Title>
+            <Title>Better <HightLight>Trust</HightLight></Title>
+            <Title>For a Better Future</Title>
             <SubTitle>Ignite your idea with Tangerine Network</SubTitle>
           </TitleSection>
         </Landing>
-        <Section><PartnerList /></Section>
-        <Section><Contact /></Section>
+        {/* <Section><PartnerList /></Section>
+        <Section><Contact /></Section> */}
         <Section
           id="technology"
           title={

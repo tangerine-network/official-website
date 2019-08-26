@@ -22,7 +22,7 @@ const Canvas = styled.canvas`
   /* border: 1px solid #EEE; */
 `;
 
-const AnimatedBubble = ({ size }) => {
+const AnimatedBubble = () => {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -118,9 +118,7 @@ const Bubble = () => {
   return (
     <Wrapper ref={wrapperRef}>
       {size && (
-        <AnimatedBubble
-          size={size}
-        />
+        <AnimatedBubble />
       )}
     </Wrapper>
   );

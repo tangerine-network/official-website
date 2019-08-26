@@ -24,6 +24,7 @@ const Card = styled.div`
     padding: 20px;
     width: 90%;
     height: 200px;
+    margin-top: 20px;
   }
 `;
 
@@ -46,31 +47,38 @@ const Padding = styled.div`
 `;
 
 
-const ResourceItems = [{
-  title: 'Faucet',
-  content: 'read_the_paper',
-  links: [{
-    title: 'get_mainnet_token',
-    link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
-  }]
-}, {
-  title: 'Paper',
-  content: 'read_the_paper',
-  links: [{
-    title: 'Manifesto',
-    link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
-  }, {
-    title: 'Consensus_Algorithm',
-    link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
-  }]
-}, {
-  title: 'dev-guide',
-  content: 'build_your_dapps',
-  links: [{
-    title: 'Resource_Wiki',
-    link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
-  }]
-}]
+const ResourceItems = [
+  // {
+  //   title: 'Faucet',
+  //   content: 'read_the_paper',
+  //   links: [{
+  //     title: 'get_mainnet_token',
+  //     link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
+  //   }]
+  // },
+  {
+    title: 'Paper',
+    // content: 'read_the_paper',
+    links: [
+      // {
+      //   title: 'Manifesto',
+      //   link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
+      // },
+      {
+        title: 'Consensus_Algorithm',
+        link: 'https://arxiv.org/abs/1907.03437'
+      }
+    ]
+  },
+  {
+    title: 'dev-guide',
+    content: 'build_your_dapps',
+    links: [{
+      title: 'Resource_Wiki',
+      link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
+    }]
+  }
+];
 
 const Resources = () => (
   <Slide bottom>
@@ -81,7 +89,9 @@ const Resources = () => (
           <Title>
             <FormattedMessage id={resource.title} />
           </Title>
-          <Content><FormattedMessage id={resource.content} /></Content>
+          {resource.content && (
+            <Content><FormattedMessage id={resource.content} /></Content>
+          )}
           <Padding />
           {(resource.links || []).map((link, key) => (
             <ExtLink onClick={() => window.open(link.link)} key={key}>
