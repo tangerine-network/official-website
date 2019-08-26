@@ -131,8 +131,7 @@ const movementEffectMobile = keyframes`
 
 const CircleBackground = styled.div`
   position: absolute;
-  background: radial-gradient(closest-side, rgba(224, 91, 33, 1) 40%, white 95%);
-  /* background: -webkit-radial-gradient(closest-side, rgba(224, 91, 33, 1) 40%, transparent 95%); */
+  background: radial-gradient(closest-side, white 50%, rgba(224, 91, 33, 0.4) 75%, white 99%);
   animation: ${movementEffect} 8s ease-in-out infinite;
   display: flex;
   align-items: center;

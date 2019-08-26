@@ -29,7 +29,7 @@ const Email = styled.div`
 const Contact = () => (
   <Wrapper>
     <Title>Get Involved</Title>
-    <Email>concat@tangerine-network.io</Email>
+    <Email>contact@tangerine-network.io</Email>
   </Wrapper>
 );
 
