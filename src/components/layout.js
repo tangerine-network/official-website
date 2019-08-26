@@ -29,9 +29,8 @@ const messages = {
 
 const Wrapper = styled.div`
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  max-width: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
