@@ -24,6 +24,7 @@ const Section = styled.div`
   align-items: ${p => p.align || 'flex-start'};
   padding: 20px;
   margin-bottom: 100px;
+  z-index: 10;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     margin-bottom: 0px;
     align-items: center;
@@ -95,7 +96,7 @@ const Explorer = () => (
         <Title><FormattedMessage id="tangerine-explorer" /></Title>
         <SubTitle><FormattedMessage id="tangerine-explorer-description" /></SubTitle>
       </TextArea>
-      <Link onClick={() => window.open('https://testnet.tangerine.garden')} >
+      <Link onClick={() => window.open('https://testnet.tangerine.garden')}>
         <FormattedMessage id="see_how_it_works" /><ArrowIcon>></ArrowIcon>
       </Link>
     </Section>
