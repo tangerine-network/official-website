@@ -150,9 +150,9 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
           <Bubble />
           <CircleBackground />
           <TitleSection>
-            <Title>Better <HightLight>Trust</HightLight></Title>
+            <Title>Build <HightLight>Trust</HightLight></Title>
             <SecondTitle>For a Better Future</SecondTitle>
-            <SubTitle>Ignite your idea with Tangerine Network</SubTitle>
+            <SubTitle>A next-generation blockchain built on fast, fair, and secure consensus protocol</SubTitle>
           </TitleSection>
         </Landing>
         {/* <Section><PartnerList /></Section>
