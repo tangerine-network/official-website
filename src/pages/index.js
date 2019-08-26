@@ -13,7 +13,7 @@ import {
   MOBILE_WIDTH,
 } from 'src/constants/app';
 import Bubble from 'src/components/Bubble';
-import PartnerList from 'src/components/LandingPage/PartnerList';
+// import PartnerList from 'src/components/LandingPage/PartnerList';
 import Contact from 'src/components/LandingPage/Contact';
 import Tech from 'src/components/LandingPage/Tech';
 import Wallet from 'src/components/LandingPage/Wallet';
@@ -78,6 +78,15 @@ const Title = styled.div`
     line-height: 35px;
   }
 `;
+const SecondTitle = styled.div`
+    font-weight: bolder;
+    font-size: 70px;
+    line-height: 70px;
+    @media screen and (max-width: ${MOBILE_WIDTH}px) {
+      font-size: 30px;
+      line-height: 30px;
+    }
+`
 const SubTitle = styled.div`
   font-size: 25px;
   margin-top: 20px;
@@ -122,7 +131,7 @@ const movementEffectMobile = keyframes`
 
 const CircleBackground = styled.div`
   position: absolute;
-  background: radial-gradient(white 45%, rgba(224, 91, 33, 0.5) 50%, white 65%);
+  background: radial-gradient(closest-side, rgba(224, 91, 33, 1) 40%, white 95%);
   /* background: -webkit-radial-gradient(closest-side, rgba(224, 91, 33, 1) 40%, transparent 95%); */
   animation: ${movementEffect} 8s ease-in-out infinite;
   display: flex;
@@ -143,7 +152,7 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
           <CircleBackground />
           <TitleSection>
             <Title>Better <HightLight>Trust</HightLight></Title>
-            <Title>For a Better Future</Title>
+            <SecondTitle>For a Better Future</SecondTitle>
             <SubTitle>Ignite your idea with Tangerine Network</SubTitle>
           </TitleSection>
         </Landing>

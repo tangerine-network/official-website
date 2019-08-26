@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { MOBILE_WIDTH } from 'src/constants/app';
-import Slide from 'react-reveal/Fade';
+// import Slide from 'react-reveal/Fade';
 
 const Wrapper = styled.div`
   display: flex;
@@ -81,30 +81,28 @@ const ResourceItems = [
 ];
 
 const Resources = () => (
-  <Slide bottom>
-    <Wrapper>
-      <Padding />
-      {(ResourceItems).map((resource, key) => (
-        <Card key={key}>
-          <Title>
-            <FormattedMessage id={resource.title} />
-          </Title>
-          {resource.content && (
-            <Content><FormattedMessage id={resource.content} /></Content>
-          )}
-          <Padding />
-          {(resource.links || []).map((link, key) => (
-            <ExtLink onClick={() => window.open(link.link)} key={key}>
-              <FormattedMessage id={link.title} />
-              <Padding />
-              >
-            </ExtLink>
-          ))}
-        </Card>
-      ))}
-      <Padding />
-    </Wrapper>
-  </Slide>
+  <Wrapper>
+    <Padding />
+    {(ResourceItems).map((resource, key) => (
+      <Card key={key}>
+        <Title>
+          <FormattedMessage id={resource.title} />
+        </Title>
+        {resource.content && (
+          <Content><FormattedMessage id={resource.content} /></Content>
+        )}
+        <Padding />
+        {(resource.links || []).map((link, key) => (
+          <ExtLink onClick={() => window.open(link.link)} key={key}>
+            <FormattedMessage id={link.title} />
+            <Padding />
+            >
+          </ExtLink>
+        ))}
+      </Card>
+    ))}
+    <Padding />
+  </Wrapper>
 );
 
 export default Resources;
