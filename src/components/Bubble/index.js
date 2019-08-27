@@ -11,8 +11,8 @@ const Wrapper = styled.div`
   height: 700px;
   width: 700px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
   }
 `;
 

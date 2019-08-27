@@ -101,37 +101,37 @@ const HightLight = styled.span`
 
 const movementEffect = keyframes`
   0% {
-    height: 680px;
-    width: 680px;
+    height: 660px;
+    width: 660px;
   }
   50% {
-    height: 730px;
-    width: 730px;
+    height: 710px;
+    width: 710px;
   }
   100% {
-    height: 680px;
-    width: 680px;
+    height: 660px;
+    width: 660px;
   }
 `
 
 const movementEffectMobile = keyframes`
   0% {
-    height: 390px;
-    width: 390px;
+    height: 290px;
+    width: 290px;
   }
   50% {
-    height: 410px;
-    width: 410px;
+    height: 310px;
+    width: 310px;
   }
   100% {
-    height: 390px;
-    width: 390px;
+    height: 290px;
+    width: 290px;
   }
 `
 
 const CircleBackground = styled.div`
   position: absolute;
-  background: radial-gradient(closest-side, white 70%, rgba(224, 91, 33, 0.4) 80%, white 100%);
+  background: radial-gradient(closest-side, white 55%, rgba(224, 91, 33, 0.6) 65%, white 100%);
   animation: ${movementEffect} 8s ease-in-out infinite;
   display: flex;
   align-items: center;
