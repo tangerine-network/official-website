@@ -29,7 +29,7 @@ const messages = {
 
 const Wrapper = styled.div`
   position: relative;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   overflow-y: auto;
   display: flex;
@@ -110,11 +110,11 @@ const Layout = ({ children, locale }) => {
       scrollTop > (100) &&
       previousScrollPosition < scrollTop
     ) {
-        setShowheader(false);
+      setShowheader(false);
     } else if (!showHeader &&
       scrollTop < previousScrollPosition
       ) {
-        setShowheader(true);
+      setShowheader(true);
     }
     previousScrollPosition = scrollTop;
   }, 100), [showHeader]);

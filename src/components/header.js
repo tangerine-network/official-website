@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FormattedMessage } from 'react-intl';
 // import { navigate } from '@reach/router';
 import styled, { keyframes } from 'styled-components';
@@ -165,13 +165,7 @@ const Dropdown = styled.div`
 
 const Header = ({ showup }) => {
   const [langSelectOn, setLangSelect] = useState();
-  const [enableAnimation, setEnableAnimation] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(null);
-  useEffect(() => {
-    if (!showup && !enableAnimation) {
-      setEnableAnimation(true);
-    }
-  });
 
   return (
     <>
@@ -214,7 +208,6 @@ const Header = ({ showup }) => {
       <PlaceHolder />
       <Wrapper
         control={showup}
-        enableAnimation={enableAnimation}
       >
         <LogoImg src={Logo} />
         {/* <Title>
