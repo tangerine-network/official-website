@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { graphql, useStaticQuery } from 'gatsby';
 import styled, { keyframes } from "styled-components";
 // import Link from 'src/components/Link';
@@ -101,16 +101,16 @@ const HightLight = styled.span`
 
 const movementEffect = keyframes`
   0% {
-    height: 660px;
-    width: 660px;
+    height: 650px;
+    width: 650px;
   }
   50% {
     height: 710px;
     width: 710px;
   }
   100% {
-    height: 660px;
-    width: 660px;
+    height: 650px;
+    width: 650px;
   }
 `
 
@@ -131,7 +131,7 @@ const movementEffectMobile = keyframes`
 
 const CircleBackground = styled.div`
   position: absolute;
-  background: radial-gradient(closest-side, white 55%, rgba(224, 91, 33, 0.6) 65%, white 100%);
+  background: radial-gradient(closest-side, rgba(224, 91, 33, 1) 30%, white 100%);
   animation: ${movementEffect} 8s ease-in-out infinite;
   display: flex;
   align-items: center;
@@ -143,12 +143,15 @@ const CircleBackground = styled.div`
 
 
 const IndexPage = ({ pageContext: { locale }, intl }) => {
+  const [showCircle, setShowCircle] = useState();
   return (
     <Layout locale={locale}>
       <Sections>
         <Landing>
-          <Bubble />
-          <CircleBackground />
+          <Bubble
+            onFinish={() => setShowCircle(true)}
+          />
+          {showCircle && <CircleBackground />}
           <TitleSection>
             <Title>Build <HightLight>Trust</HightLight></Title>
             <SecondTitle>For a Better Future</SecondTitle>

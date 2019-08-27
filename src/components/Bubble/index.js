@@ -22,11 +22,12 @@ const Canvas = styled.canvas`
   /* border: 1px solid #EEE; */
 `;
 
-const AnimatedBubble = () => {
+const AnimatedBubble = ({ onFinish }) => {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
     if (wrapperRef.current) {
+      onFinish();
       addBubble({
         color: 'rgba(255, 255, 255, 0.3)',
         radius: 250,
@@ -107,7 +108,7 @@ const AnimatedBubble = () => {
   );
 }
 
-const Bubble = () => {
+const Bubble = ({ onFinish }) => {
   const wrapperRef = useRef();
   const [size, setSize] = useState();
   useEffect(() => {
@@ -118,7 +119,7 @@ const Bubble = () => {
   return (
     <Wrapper ref={wrapperRef}>
       {size && (
-        <AnimatedBubble />
+        <AnimatedBubble onFinish={onFinish} />
       )}
     </Wrapper>
   );
