@@ -163,6 +163,13 @@ const Dropdown = styled.div`
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
 `;
 
+const Saparater = styled.div`
+  height: 5px;
+  width: 30px;
+  background-color: #c45b26;
+  margin-bottom: 40px;
+`;
+
 const Header = ({ showup }) => {
   const [langSelectOn, setLangSelect] = useState();
   const [mobileMenu, setMobileMenu] = useState(null);
@@ -187,6 +194,7 @@ const Header = ({ showup }) => {
           </Link>
         ))}
         <Padding />
+        <Saparater />
         {Object.keys(Locales).map((it, key) => (it !== 'default') && (
           <Link
             ignoreLocale

@@ -75,7 +75,7 @@ const ResourceItems = [
     content: 'build_your_dapps',
     links: [{
       title: 'Resource_Wiki',
-      link: 'https://byzantine-lab.gitlab.io/wiki/#/Dapp-Development-Guide'
+      link: 'https://tangerine-network.github.io/wiki/#/Dapp-Development-Guide?id=dapp-development-guide'
     }]
   }
 ];

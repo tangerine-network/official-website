@@ -58,6 +58,9 @@ const Button = styled.div`
     font-size: 14px;
     /* font-weight: normal; */
   }
+  &:hover {
+    background-color: #F8F8F8;
+  }
 `;
 const Padding = styled.div`
   flex: 1;

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components";
@@ -29,7 +29,7 @@ const messages = {
 
 const Wrapper = styled.div`
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   overflow-y: auto;
   display: flex;
@@ -100,10 +100,9 @@ const InjectedSEO = injectIntl(({ intl }) => {
 const Layout = ({ children, locale }) => {
 
   const [showHeader, setShowheader] = useState(true);
-  const wrapperRef = useRef(null);
 
   const scrollHandler = useCallback(throttle(() => {
-    const scrollTop = wrapperRef.current.scrollTop;
+    const scrollTop = window.scrollY;
     if ((scrollTop <= 100) && !showHeader) {
       setShowheader(true);
     } else if (showHeader &&
@@ -119,16 +118,17 @@ const Layout = ({ children, locale }) => {
     previousScrollPosition = scrollTop;
   }, 100), [showHeader]);
 
+  useEffect(() => {
+    const body = document.body;
+    body.onscroll = scrollHandler;
+  }, [scrollHandler]);
+
   return (
     <IntlProvider
       locale={locale}
       messages={messages[locale] || messages['en']}
     >
-      <Wrapper
-        onScroll={scrollHandler}
-        ref={wrapperRef}
-      >
-
+      <Wrapper>
         <InjectedSEO />
         <Header showup={showHeader} />
         <Main>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { MOBILE_WIDTH } from 'src/constants/app';
-// import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,12 +24,20 @@ const Title = styled.div`
 const Email = styled.div`
   font-weight: bold;
   font-size: 20px;
+  & > a {
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const Contact = () => (
   <Wrapper>
-    <Title>Get Involved</Title>
-    <Email>contact@tangerine-network.io</Email>
+    <Title><FormattedMessage id="get_involved" /></Title>
+    <Email>
+      <a href="mailto:contact@tangerine-network.io">
+        contact@tangerine-network.io
+      </a>
+    </Email>
   </Wrapper>
 );
 
