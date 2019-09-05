@@ -43,6 +43,40 @@ const Main = styled.main`
 
 let previousScrollPosition = 0;
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://tangerine-network.io",
+  "name": "Tangerine Network",
+  "description": "A next-generation blockchain built on fast, fair, and secure consensus protocol",
+  "logo": site_logo,
+  "foundingDate": "2019",
+  "founders": [
+    {
+      "@type": "Organization",
+      "name": "Byzantine Lab",
+      "url": "https://byzantine-lab.io",
+      "sameAs": [
+        "https://www.linkedin.com/company/byzantine-lab/",
+        "https://www.facebook.com/Byzantine-Lab-460839568073884/"
+      ]
+    },
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@tangerine-network.io",
+    "contactType": "Customer service",
+    "url": "https://tangerine-netowrk.io/",
+  },
+  "owns": [
+    {
+      "@type": "product",
+      "name": "Tangerine Network",
+      "url": "https://tangerine-network.io",
+      "color": "#e05b21",
+    }
+  ]
+};
 const InjectedSEO = injectIntl(({ intl }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -91,8 +125,12 @@ const InjectedSEO = injectIntl(({ intl }) => {
       <meta name="twitter:data1" value="5 min read" />
       <meta name="twitter:app:name:iphone" content={intl.formatMessage({ id: 'Tangerine Network' }) } />
 
-      <meta name="keywords" lang="en" content="tangerine, blockchain, decentralized"/>
-      <meta name="keywords" lang="zh" content="去中心化, 區塊鏈"/>
+      <meta name="keywords" lang="en" content="tangerine network, blockchain, decentralized, byzantine consensus algorithm"/>
+      <meta name="keywords" lang="zh" content="柑橘網路, 去中心化, 區塊鏈, 拜占庭共識演算法"/>
+
+      <script type="application/ld+json">
+        {JSON.stringify(schema)}
+      </script>
     </Helmet>
   );
 });
