@@ -51,7 +51,7 @@ const schema = {
   "description": "A next-generation blockchain built on fast, fair, and secure consensus protocol",
   "logo": site_logo,
   "foundingDate": "2019",
-  "founders": [
+  "member": [
     {
       "@type": "Organization",
       "name": "Byzantine Lab",
@@ -59,6 +59,148 @@ const schema = {
       "sameAs": [
         "https://www.linkedin.com/company/byzantine-lab/",
         "https://www.facebook.com/Byzantine-Lab-460839568073884/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Block Tempo",
+      "url": "https://www.blocktempo.com",
+      "sameAs": [
+        "https://www.facebook.com/BlockTempo/",
+        "https://www.linkedin.com/company/blocktempo/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "CoolBitX",
+      "url": "https://coolbitx.com/",
+      "sameAs": [
+        "https://www.facebook.com/pages/Coolbitx-Technology/1855137411406678",
+        "http://linkedin.com/company/coolbitx/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Dapp Pocket",
+      "url": "https://www.dapppocket.io/",
+      "sameAs": [
+        "https://www.facebook.com/DappPocket/",
+        "https://www.linkedin.com/company/dapp-pocket/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "KryptoGO",
+      "url": "https://kryptogo.app/",
+      "sameAs": [
+        "https://www.facebook.com/kryptogo/",
+        "https://www.linkedin.com/company/kryptogo/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "LiMaGo",
+      "url": "https://limago123.com/",
+      "sameAs": []
+    },
+    {
+      "@type": "Organization",
+      "name": "Lootex",
+      "url": "https://lootex.io/",
+      "sameAs": [
+        "https://www.facebook.com/lootex.io/",
+
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Mithril",
+      "url": "https://mith.io/",
+      "sameAs": [
+        "https://www.facebook.com/MithrilOfficial/",
+        "https://www.linkedin.com/company/mithio/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Pelith",
+      "url": "https://pelith.com/",
+      "sameAs": [
+        "https://www.linkedin.com/company/pelith/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Portto",
+      "url": "https://portto.io/",
+      "sameAs": [
+        "https://www.facebook.com/portto.io",
+        "https://www.linkedin.com/company/portto/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "SOLA Bloc",
+      "url": "https://www.solabloc.com/",
+      "sameAs": [
+        "https://www.facebook.com/SOLABloc/",
+        "https://www.linkedin.com/company/solabloc/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "TOKAMAKLABS",
+      "url": "https://tokamaklabs.io/",
+      "sameAs": [
+        "https://www.facebook.com/TokamakLabs/",
+        "https://www.linkedin.com/company/tokamak-labs/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "YZU CIS Lab / 元智大學 / Cryptography and Information Security Lab",
+      "url": "https://wycchen.github.io/cislab/",
+      "sameAs": [
+        "https://wycchen.github.io/",
+        "https://www.yzu.edu.tw"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "台大共識實驗室 / NTU ABC Lab",
+      "url": "https://www.csie.ntu.edu.tw/~liao/",
+      "sameAs": [
+        "https://www.csie.ntu.edu.tw/",
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "中興大學資訊管理學系 資訊與網路安全管理實驗室 / Information and network security laboratory",
+      "url": "http://www.dgdel.nchu.edu.tw/intro_lab.php",
+      "sameAs": []
+    },
+    {
+      "@type": "Organization",
+      "name": "逢甲大學 PDP Lab",
+      "url": "http://140.134.25.125",
+      "sameAs": []
+    },
+    {
+      "@type": "Organization",
+      "name": "快速密碼學實驗室 / fast crypto lab",
+      "url": "http://ee.ntu.edu.tw/article/teacher.person/jobSN/3/navSN/530/webSN/645/teacherSN/122",
+      "sameAs": [
+        "https://www.facebook.com/fastcryptolab/",
+        "https://github.com/fast-crypto-lab"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "BitoEX",
+      "url": "https://www.bitoex.com/",
+      "sameAs": [
+        "https://www.facebook.com/bitoex/",
+        "https://www.linkedin.com/company/bitoex/"
       ]
     },
   ],
