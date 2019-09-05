@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import {
   MOBILE_WIDTH,
 } from 'src/constants/app';
-import Byzantine from 'src/images/partner/Byzantine.inline.svg';
+import Byzantine from 'src/images/partner/byzantine.inline.svg';
 import KryptoGO from 'src/images/partner/kryptogo.inline.svg';
 import Portto from 'src/images/partner/portto.inline.svg';
 import Solar from 'src/images/partner/solar.inline.svg';
