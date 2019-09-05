@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 // import { graphql, useStaticQuery } from "gatsby";
 // import Img from "gatsby-image";
 import {
@@ -74,6 +75,7 @@ const Comment = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 const CommentPadding = styled.div`
@@ -82,6 +84,7 @@ const CommentPadding = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const PartnerInfo = {
@@ -127,20 +130,26 @@ const Commenter = styled.div`
   /* padding-bottom: 30px; */
 `
 
+const MainnetLaunch = styled.div`
+  color: #e05b21;
+  font-weight: bold;
+  font-size: 40px;
+`;
+
 const PartnerList = () => {
   const [selectedPartner, setSelectedPartner] = useState(PartnerInfo.kryptogo);
   const { comment, logo, commenter, name } = selectedPartner;
   return (
     <Wrapper>
       <GridLayout>
-        {Object.keys(PartnerInfo).map(
+        {/* {Object.keys(PartnerInfo).map(
           (it, key) => (<Item
             key={key}
             onClick={() => setSelectedPartner(PartnerInfo[it])}
           >
             <PartnerLogo>{PartnerInfo[it].logo}</PartnerLogo>
           </Item>)
-        )}
+        )} */}
         {/* {Object.keys(PartnerInfo).map(
           (it, key) => (<Item
             key={key}
@@ -152,9 +161,10 @@ const PartnerList = () => {
       </GridLayout>
       <CommentPadding>
         <Comment>
-          <PartnerComment>"{comment}"</PartnerComment>
+          {/* <PartnerComment>"{comment}"</PartnerComment>
           <CommentLogo>{logo}</CommentLogo>
-          <Commenter>{commenter} - {name}</Commenter>
+          <Commenter>{commenter} - {name}</Commenter> */}
+          <MainnetLaunch><FormattedMessage id="mainnet_929_launch" /></MainnetLaunch>
         </Comment>
       </CommentPadding>
     </Wrapper>

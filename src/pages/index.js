@@ -13,7 +13,7 @@ import {
   MOBILE_WIDTH,
 } from 'src/constants/app';
 import Bubble from 'src/components/Bubble';
-// import PartnerList from 'src/components/LandingPage/PartnerList';
+import PartnerList from 'src/components/LandingPage/PartnerList';
 import Contact from 'src/components/LandingPage/Contact';
 import Tech from 'src/components/LandingPage/Tech';
 import Wallet from 'src/components/LandingPage/Wallet';
@@ -158,8 +158,8 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
             <SubTitle>A next-generation blockchain built on fast, fair, and secure consensus protocol</SubTitle>
           </TitleSection>
         </Landing>
-        {/* <Section><PartnerList /></Section>
-        <Section><Contact /></Section> */}
+        <Section><PartnerList /></Section>
+        <Section><Contact /></Section>
         <Section
           id="technology"
           title={
