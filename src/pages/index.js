@@ -34,7 +34,7 @@ const SectionTitle = styled.div`
   text-align: center;
   font-weight: bold;
   font-size: 30px;
-  padding: 60px 0px;
+  padding: 100px 0px;
   color: #282625;
 `;
 const Section = ({ children, title, id }) => (
@@ -159,7 +159,7 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
           </TitleSection>
         </Landing>
         <Section><PartnerList /></Section>
-        <Section><Contact /></Section>
+        {/* <Section><Contact /></Section> */}
         <Section
           id="technology"
           title={

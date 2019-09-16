@@ -134,6 +134,10 @@ const MainnetLaunch = styled.div`
   color: #e05b21;
   font-weight: bold;
   font-size: 40px;
+  text-align: center;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    font-size: normal;
+  }
 `;
 
 const PartnerList = () => {
