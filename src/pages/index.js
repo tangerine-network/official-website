@@ -206,7 +206,11 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
             <Title>Mainnet </Title>
             <SecondTitle><HightLight>Launched!</HightLight></SecondTitle>
             {/* <SubTitle>A next-generation blockchain built on fast, fair, and secure consensus protocol</SubTitle> */}
-            <ExploreButton>Go Explore!</ExploreButton>
+            <ExploreButton
+              onClick={() => window.open('https://tangerine.garden/')}
+            >
+              Go Explore!
+            </ExploreButton>
           </TitleSection>
         </Landing>
         {/* <Section><PartnerList /></Section> */}
