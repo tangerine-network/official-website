@@ -19,6 +19,8 @@ import Tech from 'src/components/LandingPage/Tech';
 import Wallet from 'src/components/LandingPage/Wallet';
 import Explorer from 'src/components/LandingPage/Explorer';
 import Resources from 'src/components/LandingPage/Resources';
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
 const Sections = styled.div`
 `;
@@ -50,12 +52,14 @@ const Landing = styled.div`
   /* height: ${MAIN_AREA_DESKTOP_HEIGHT}px; */
   height: calc(100vh - ${HEADER_HEIGHT}px);
   overflow: hidden;
-  @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    height: calc(100vh - ${MOBILE_HEADER_HEIGHT}px);
-  }
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    height: calc(100vh - ${MOBILE_HEADER_HEIGHT}px);
+    /* flex-direction: column; */
+  }
+
 `;
 const TitleSection = styled.div`
   /* border: 1px solid #EEE; */
@@ -66,6 +70,9 @@ const TitleSection = styled.div`
   font-family: Montserrat;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     padding: 0px 20px;
+    position: absolute;
+    top: 50%;
+    /* left: 20px; */
   }
 `;
 const Title = styled.div`
@@ -74,8 +81,8 @@ const Title = styled.div`
   font-size: 70px;
   line-height: 70px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
-    font-size: 35px;
-    line-height: 35px;
+    font-size: 50px;
+    line-height: 50px;
   }
 `;
 const SecondTitle = styled.div`
@@ -83,8 +90,8 @@ const SecondTitle = styled.div`
     font-size: 70px;
     line-height: 70px;
     @media screen and (max-width: ${MOBILE_WIDTH}px) {
-      font-size: 30px;
-      line-height: 30px;
+      font-size: 40px;
+      line-height: 40px;
     }
 `
 const SubTitle = styled.div`
@@ -141,24 +148,72 @@ const CircleBackground = styled.div`
   }
 `;
 
+const ExploreButton = styled.button`
+  background-color: #e05b21;
+  padding: 15px 30px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  border: none;
+  font-weight: bold;
+  margin-top: 50px;
+  cursor: pointer;
+`;
+
+const LaunchImageWrapper = styled.div`
+  position: absolute;
+  z-index: 10;
+  width: 1100px;
+  margin-left: 100px;
+  @media screen and (max-width: ${MOBILE_WIDTH}px) {
+    /* position: relative; */
+    /* width: 100%; */
+    margin-left: 0px;
+    width: 130%;
+    top: 10px;
+  }
+`;
 
 const IndexPage = ({ pageContext: { locale }, intl }) => {
   const [showCircle, setShowCircle] = useState();
+  const query = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "mainnet-launch-landing-image.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   return (
     <Layout locale={locale}>
       <Sections>
         <Landing>
-          <Bubble
+          <LaunchImageWrapper>
+            <Img
+              fluid={query.file.childImageSharp.fluid}
+            />
+          </LaunchImageWrapper>
+          {/* <Bubble
             onFinish={() => setShowCircle(true)}
           />
-          {showCircle && <CircleBackground />}
+          {showCircle && <CircleBackground />} */}
           <TitleSection>
-            <Title>Build <HightLight>Trust</HightLight></Title>
-            <SecondTitle>For a Better Future</SecondTitle>
-            <SubTitle>A next-generation blockchain built on fast, fair, and secure consensus protocol</SubTitle>
+            {/* <Title>Build </Title> */}
+            {/* <SecondTitle>For a Better Future</SecondTitle> */}
+            <Title>Mainnet </Title>
+            <SecondTitle><HightLight>Launched!</HightLight></SecondTitle>
+            {/* <SubTitle>A next-generation blockchain built on fast, fair, and secure consensus protocol</SubTitle> */}
+            <ExploreButton
+              onClick={() => window.open('https://tangerine.garden/')}
+            >
+              Go Explore!
+            </ExploreButton>
           </TitleSection>
         </Landing>
-        <Section><PartnerList /></Section>
+        {/* <Section><PartnerList /></Section> */}
         {/* <Section><Contact /></Section> */}
         <Section
           id="technology"
