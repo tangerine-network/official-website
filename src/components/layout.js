@@ -17,6 +17,7 @@ import throttle from 'lodash-es/throttle';
 import messages_zh from "../translations/zh-Hant.json";
 import messages_en from "../translations/en.json";
 import site_logo from 'src/images/site_logo.png';
+import appService from '../services/app';
 import Header from "./header"
 import Footer from './footer';
 
@@ -277,7 +278,39 @@ const InjectedSEO = injectIntl(({ intl }) => {
   );
 });
 
+const ModalBackground = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: ${p => p.show ? 1 : 0};
+  z-index: 1000;
+  transition: 0.3s opacity ease-out;
+  pointer-events: ${p => p.show ? 'auto' : 'none'};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const ModalArea = styled.div`
+  background: white;
+`;
+
 const Layout = ({ children, locale }) => {
+
+  const [displayModal, setDisplayModal] = useState();
+  const [modal, setModal] = useState();
+
+  useEffect(() => {
+    appService.setOpenModal((content) => {
+      setDisplayModal(true);
+      setModal(content);
+    });
+    appService.setCloseModal(() => {
+      setDisplayModal(false);
+      setTimeout(() => setModal(undefined), 3000);
+    });
+  }, []);
 
   const [showHeader, setShowheader] = useState(true);
 
@@ -309,6 +342,15 @@ const Layout = ({ children, locale }) => {
       messages={messages[locale] || messages['en']}
     >
       <Wrapper>
+        <ModalBackground
+          show={modal && displayModal}
+        >
+          <ModalArea
+            onClick={e => e.stopPropagation()}
+          >
+            {modal}
+          </ModalArea>
+        </ModalBackground>
         <InjectedSEO />
         <Header showup={showHeader} />
         <Main>
@@ -318,7 +360,7 @@ const Layout = ({ children, locale }) => {
       </Wrapper>
     </IntlProvider>
   )
-}
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
