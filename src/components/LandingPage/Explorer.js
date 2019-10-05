@@ -96,7 +96,7 @@ const Explorer = () => (
         <Title><FormattedMessage id="tangerine-explorer" /></Title>
         <SubTitle><FormattedMessage id="tangerine-explorer-description" /></SubTitle>
       </TextArea>
-      <Link onClick={() => window.open('https://testnet.tangerine.garden')}>
+      <Link onClick={() => window.open('https://tangerine.garden')}>
         <FormattedMessage id="see_how_it_works" /><ArrowIcon>></ArrowIcon>
       </Link>
     </Section>
