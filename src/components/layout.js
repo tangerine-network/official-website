@@ -260,8 +260,7 @@ const InjectedSEO = injectIntl(({ intl }) => {
 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={intl.formatMessage({ id: 'Tangerine Network' })} />
-      <meta name="twitter:image" content={intl.formatMessage({ id: 'tangerine-description' })} />
-      <meta name="twitter:image:src" content={og_image} />
+      <meta name="twitter:image" content={og_image} />
       <meta name="twitter:site" content={intl.formatMessage({ id: 'Tangerine Network' })} />
       <meta name="twitter:creator" content={intl.formatMessage({ id: 'Tangerine Network' }) } />
       <meta name="twitter:description" content={intl.formatMessage({ id: 'tangerine-description' })} />
