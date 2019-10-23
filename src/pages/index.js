@@ -213,7 +213,7 @@ const IndexPage = ({ pageContext: { locale }, intl }) => {
             </ExploreButton>
           </TitleSection>
         </Landing>
-        {/* <Section><PartnerList /></Section> */}
+        <Section><PartnerList /></Section>
         {/* <Section><Contact /></Section> */}
         <Section
           id="technology"

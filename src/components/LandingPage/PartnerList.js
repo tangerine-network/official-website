@@ -6,10 +6,18 @@ import { FormattedMessage } from 'react-intl';
 import {
   MOBILE_WIDTH,
 } from 'src/constants/app';
-import Byzantine from 'src/images/partner/byzantine.inline.svg';
-import KryptoGO from 'src/images/partner/kryptogo.inline.svg';
-import Portto from 'src/images/partner/portto.inline.svg';
-import Solar from 'src/images/partner/solar.inline.svg';
+import Byzantine from 'src/images/partner/byzlab.svg';
+import KryptoGO from 'src/images/partner/kryptogo.svg';
+import Portto from 'src/images/partner/portto.svg';
+import Solar from 'src/images/partner/sola.svg';
+import AbcLab from 'src/images/partner/abclab.png';
+import Authme from 'src/images/partner/authme.png';
+import BiiLabs from 'src/images/partner/biilabs.svg';
+import Bito from 'src/images/partner/bito.svg';
+import Dapppocket from 'src/images/partner/dapppocket.svg';
+import NCKU from 'src/images/partner/ncku.png';
+import Tokamak from 'src/images/partner/tokamak.png';
+import Fcu from 'src/images/partner/fcu.png';
 
 const Wrapper = styled.div`
   font-family: Avenir;
@@ -17,7 +25,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
+  padding: 60px 0px;
   /* justify-content: center; */
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     /* padding: 50px 10px; */
@@ -46,16 +54,21 @@ const Item = styled.div`
   }
 `;
 
-const PartnerLogo = styled.div`
+const Logo = styled.img`
+  /* border: 1px solid red; */
   height: 100px;
+`;
+
+const PartnerLogo = styled.div`
+  /* height: 100px; */
   display: flex;
   align-items: center;
   justify-content: center;
-  fill: #585858;
+  /* fill: #585858; */
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     height: auto;
     /* width: 48%; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* border: 1px solid red; */
   }
 `;
@@ -92,25 +105,85 @@ const PartnerInfo = {
     name: 'Byzantine Lab',
     commenter: '林冠吾, CEO',
     comment: 'I like to eat pizza, how about you?',
-    logo: <Byzantine />,
+    logo: <Logo src={Byzantine} />,
+    link: 'https://byzantine-lab.io',
   },
   sola: {
     name: 'Sola',
     commenter: '不認識, ',
     comment: 'I like to drink beer',
-    logo: <Solar />,
+    logo: <Logo src={Solar} />,
+    link: 'https://www.solabloc.com'
   },
   portto: {
     name: 'Portto.',
     commenter: '玄哥, C玄O',
     comment: 'I am Portto, Portto is me',
-    logo: <Portto />,
+    logo: <Logo src={Portto} />,
+    link: 'https://portto.io/'
   },
   kryptogo: {
     name: 'Krypto GO',
     commenter: '歐柯登, CEO',
     comment: 'KordanGO is a company yoyoyo',
-    logo: <KryptoGO />,
+    logo: <Logo src={KryptoGO} />,
+    link: 'https://kryptogo.com/'
+  },
+  biiLabs: {
+    name: 'BiiLabs',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={BiiLabs} />,
+    link: 'https://biilabs.io/',
+  },
+  abclab: {
+    name: 'ABC Lab',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={AbcLab} />,
+    link: 'https://abclabs.org'
+  },
+  authme: {
+    name: 'Authme',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={Authme} />,
+    link: 'https://authme.com'
+  },
+  bito: {
+    name: 'Bito Pro',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={Bito} />,
+    link: 'https://www.bitopro.com'
+  },
+  Dapppocket: {
+    name: 'Dapp Pocket',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={Dapppocket} />,
+    link: 'https://www.dapppocket.io'
+  },
+  NCKU: {
+    name: 'NCKU',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={NCKU} />,
+    link: 'https://dlt.csie.ncku.edu.tw'
+  },
+  Tokamak: {
+    name: 'Tokamak',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={Tokamak} />,
+    link: 'https://tokamaklabs.io'
+  },
+  nchu: {
+    name: 'NCHU',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={Fcu} />,
+    link: 'http://140.120.40.109:8585/'
   },
 };
 
@@ -146,31 +219,25 @@ const PartnerList = () => {
   return (
     <Wrapper>
       <GridLayout>
-        {/* {Object.keys(PartnerInfo).map(
+        {Object.keys(PartnerInfo).map(
           (it, key) => (<Item
             key={key}
-            onClick={() => setSelectedPartner(PartnerInfo[it])}
+            onClick={() => {
+              setSelectedPartner(PartnerInfo[it]);
+              window.open(PartnerInfo[it].link);
+            }}
           >
             <PartnerLogo>{PartnerInfo[it].logo}</PartnerLogo>
           </Item>)
-        )} */}
-        {/* {Object.keys(PartnerInfo).map(
-          (it, key) => (<Item
-            key={key}
-            onClick={() => setSelectedPartner(PartnerInfo[it])}
-          >
-            <PartnerLogo>{PartnerInfo[it].logo}</PartnerLogo>
-          </Item>)
-        )} */}
+        )}
       </GridLayout>
-      <CommentPadding>
+      {/* <CommentPadding>
         <Comment>
-          {/* <PartnerComment>"{comment}"</PartnerComment>
+          <PartnerComment>"{comment}"</PartnerComment>
           <CommentLogo>{logo}</CommentLogo>
-          <Commenter>{commenter} - {name}</Commenter> */}
-          <MainnetLaunch><FormattedMessage id="mainnet_929_launch" /></MainnetLaunch>
+          <Commenter>{commenter} - {name}</Commenter>
         </Comment>
-      </CommentPadding>
+      </CommentPadding> */}
     </Wrapper>
   );
 };
