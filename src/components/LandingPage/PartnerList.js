@@ -17,7 +17,10 @@ import Bito from 'src/images/partner/bito.svg';
 import Dapppocket from 'src/images/partner/dapppocket.svg';
 import NCKU from 'src/images/partner/ncku.png';
 import Tokamak from 'src/images/partner/tokamak.png';
-import Fcu from 'src/images/partner/fcu.png';
+import NCHU from 'src/images/partner/NCHU.png';
+import Mithril from 'src/images/partner/mithril.svg';
+import fastCryptoLab from 'src/images/partner/fastcryptolab.png';
+
 
 const Wrapper = styled.div`
   font-family: Avenir;
@@ -108,6 +111,13 @@ const PartnerInfo = {
     logo: <Logo src={Byzantine} />,
     link: 'https://byzantine-lab.io',
   },
+  mith: {
+    name: 'Mithril',
+    commenter: '不認識, ',
+    comment: 'I like to drink beer',
+    logo: <Logo src={Mithril} />,
+    link: 'https://mith.io/'
+  },
   sola: {
     name: 'Sola',
     commenter: '不認識, ',
@@ -178,11 +188,18 @@ const PartnerInfo = {
     logo: <Logo src={Tokamak} />,
     link: 'https://tokamaklabs.io'
   },
+  fastCryptoLab: {
+    name: 'NCHU',
+    commenter: '123',
+    comment: 'abc123',
+    logo: <Logo src={fastCryptoLab} />,
+    link: 'https://fast-crypto-lab.github.io'
+  },
   nchu: {
     name: 'NCHU',
     commenter: '123',
     comment: 'abc123',
-    logo: <Logo src={Fcu} />,
+    logo: <Logo src={NCHU} />,
     link: 'http://140.120.40.109:8585/'
   },
 };
