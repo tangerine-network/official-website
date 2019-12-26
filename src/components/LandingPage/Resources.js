@@ -194,7 +194,7 @@ const ResourceItems = [
       link: 'https://tangerine-network.github.io/wiki/#/Dapp-Development-Guide?id=dapp-development-guide'
     }, {
       title: 'github',
-      link: 'https://https://github.com/tangerine-network'
+      link: 'https://github.com/tangerine-network'
     }]
   },
 ];
